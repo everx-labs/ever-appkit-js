@@ -1,41 +1,24 @@
 # FreeTON Application Kit
 
-This library is a part of FreeTON SDK for JavaScript.
+This library is a part of Free TON SDK for JavaScript.
 
 AppKit is built over the `@tonclient/core` package and purposed to simplify writing applications
-using FreeTON core library.
+using Free TON core library.
 
 **Have a question? Get quick help in our channel:**
 
 [![Chat on Telegram](https://img.shields.io/badge/chat-on%20telegram-9cf.svg)](https://t.me/ton_sdk)
 
 To get a deeper understanding dive into
-our [SDK guides](https://docs.ton.dev/86757ecb2/p/783f9d-about-sdk) where you can find extensive
+our [SDK guides](https://docs.ton.dev/86757ecb2/p/37f8fc-guides) where you can find extensive
 explanations and descriptions of each step of DApp development on Free TON.
 
 ## Before You Start
 
-We strongly recommend to install `tondev` utility before you start playing with TON AppKit. This is
-an ultimate set of tools for FreeTON development.
+We strongly recommend to install [TONDEV](https://github.com/tonlabs/tondev) utility before you start playing with TON AppKit. This is
+an ultimate set of tools for Free TON development.
 
-It includes:
-
-- Solidity toolchain – to create and compile smart contracts.
-- TONOS SE – to create a lightweight sandboxed blockchains on your computer for development and
-  debugging.
-- and much more...
-
-Installation is pretty easy:
-
-```shell
-npm i -g tondev
-```
-
-Learn more about [tondev](https://github.com/tonlabs/tondev).
-
-Also we recommend the `TONDev` extension for Visual Studio Code users.
-
-Ok, lets go.
+Also we recommend the [TONDEV](https://github.com/tonlabs/tondev-vscode) extension for Visual Studio Code users.
 
 ## Installation
 
@@ -61,7 +44,7 @@ npm i --save @tonclient/appkit
 You must initialize the core library before the first use. The best place to do it is an
 initialization code of your application.
 
-NodeJs:
+### NodeJs:
 
 ```javascript
 const { TonClient } = require("@tonclient/core");
@@ -72,7 +55,7 @@ const { libNode } = require("@tonclient/lib-node");
 TonClient.useBinaryLibrary(libNode)
 ```
 
-Web:
+### Web:
 
 ```javascript
 import { TonClient } from "@tonclient/core";
@@ -103,7 +86,7 @@ libWebSetup({
 TonClient.useBinaryLibrary(libWeb);
 ```
 
-React Native:
+### React Native:
 
 ```javascript
 import { TonClient } from "@tonclient/core";
@@ -116,8 +99,7 @@ TonClient.useBinaryLibrary(libReactNative);
 
 ## Create Client Instance
 
-TON AppKit is built over core library. So you have to create an instance of `TonClient` to use it
-later with TON AppKit objects.
+TON AppKit is built over [core JS library](https://github.com/tonlabs/ton-client-js/tree/master/packages/core). So you have to create an instance of `TonClient` to use it later with TON AppKit objects.
 
 ```javascript
 const client = new TonClient({
@@ -125,7 +107,7 @@ const client = new TonClient({
 });
 ```
 
-Is this sample we create a client instance configured to use TONOS SE instance.
+Is this sample we create a client instance configured to use local blockchain [TON OS SE](https://github.com/tonlabs/tonos-se) instance.
 
 ## A Few Words about the Code
 
@@ -135,7 +117,7 @@ In this code we omit an initialization part because it is the same.
 
 We suppose that we are using lib-node bridge (NodeJs) to write examples.
 
-Also we use the library to deal with local TONOS SE instance.
+Also we use the library to deal with local TON OS SE instance.
 
 So full code of each example can look like this:
 
@@ -221,6 +203,9 @@ console.log("Account balance now is", await acc.getBalance());
 ```
 
 In the example above we demonstrated typical basic usage of the Account object.
+### Sample source code
+Find the sample that demonstrates AppKit usage source code here
+https://github.com/tonlabs/sdk-samples/tree/master/demo/hello
 
 ## Executing Contract on TVM
 
