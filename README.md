@@ -107,7 +107,7 @@ const client = new TonClient({
 });
 ```
 
-Is this sample we create a client instance configured to use local blockchain [TON OS SE](https://github.com/tonlabs/tonos-se) instance.
+In this sample we create a client instance configured to use local blockchain [TON OS SE](https://github.com/tonlabs/tonos-se) instance.
 
 ## A Few Words about the Code
 
