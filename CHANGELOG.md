@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.2.0] – 2021-04-08
+
+### New
+- `Account.deployLocal` emulates deploy on local TVM.
+- `AccountType` enumeration with available values for `acc_type` field of the parsed account.
+- `Account.calcDeployFees` and `Account.calcRunFees` calculates estimated fees for deploy and run message processing.
+
+### Fixed
+- `Account.getAccount` failed if an account is missing. Now it returns parsed account with only field `acc_type` equals to `AccountType.nonExist`.
+
+
 ## [0.1.0] – 2021-03-05
 
 ### New
