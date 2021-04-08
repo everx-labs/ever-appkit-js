@@ -2,10 +2,10 @@
 <h1 align="center">Free TON JS Application Kit</h1>
 <p align="center">This library is a part of Free TON SDK for JavaScript.</p>
 
-AppKit is built over the `@tonclient/core` package and purposed to simplify writing applications
-using Free TON core library.
+AppKit is built over the [@tonclient/core](https://github.com/tonlabs/ton-client-js) package and purposed to simplify writing applications on Free TON.
 
 Full API reference https://tonlabs.github.io/appkit-js/.  
+
 If this package helped you, please give it a star:)
 
 **Have a question? Get quick help in our channel:**
