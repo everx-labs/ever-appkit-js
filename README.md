@@ -5,14 +5,15 @@
 AppKit is built over the `@tonclient/core` package and purposed to simplify writing applications
 using Free TON core library.
 
-Full API reference https://tonlabs.github.io/appkit-js/.
+Full API reference https://tonlabs.github.io/appkit-js/.  
+If this package helped you, please give it a star:)
 
 **Have a question? Get quick help in our channel:**
 
 [![Chat on Telegram](https://img.shields.io/badge/chat-on%20telegram-9cf.svg)](https://t.me/ton_sdk)
 
 ## Table of Сontent
-- [Table of content](#table-of-content)
+- [Table of Сontent](#table-of-сontent)
 - [Useful links](#useful-links)
 - [Before You Start](#before-you-start)
 - [Installation](#installation)
@@ -24,8 +25,8 @@ Full API reference https://tonlabs.github.io/appkit-js/.
 - [A Few Words about the Code](#a-few-words-about-the-code)
 - [Use Account Object](#use-account-object)
   - [Sample source code](#sample-source-code)
-- [Executing Contract on TVM](#executing-contract-on-tvm)
 - [Subscribe for Changes](#subscribe-for-changes)
+- [Executing Contract on TVM](#executing-contract-on-tvm)
 
 ## Useful links
 - [Full API reference](https://tonlabs.github.io/appkit-js/)
@@ -130,15 +131,12 @@ In this sample we create a client instance configured to use local blockchain [T
 
 ## A Few Words about the Code
 
-Below we use a code snippets to illustrate an AppKit usage.
-
-In this code we omit an initialization part because it is the same.
-
+Below we use a code snippets to illustrate `AppKit` usage.  
+In this code we omit an initialization part because it is the same.  
 We suppose that we are using lib-node bridge (NodeJs) to write examples.
+Also we use the library to deal with local [TON OS SE](https://github.com/tonlabs/tonos-se) instance.
 
-Also we use the library to deal with local TON OS SE instance.
-
-So full code of each example can look like this:
+So the full code of each example can look like this:
 
 ```javascript
 const { TonClient } = require("@tonclient/core");
@@ -166,7 +164,7 @@ async function main(client) {
 
 ## Use Account Object
 
-The key point of the AppKit is an Account object (class). 
+At the moment the key point of `AppKit` is an Account object (class). 
 Application uses an Account instance to deal with specific 
 blockchain [account](docs/glossary.md#account) using specific 
 owner (signer in term of TonClient library).
@@ -177,7 +175,7 @@ with an ABI and optionally [tvc](docs/glossary.md#tvc) fields.
 This object must be provided to the Account constructor.
 
 In the example below we use predefined [giver](docs/glossary.md#giver) 
-already included in AppKit and pre deployed in TONOS SE.
+already included in AppKit and predeployed in TONOS SE.
 
 ```javascript
 // Define Contract object.
@@ -222,18 +220,19 @@ console.log("Account balance now is", await acc.getBalance());
 ```
 
 In the example above we demonstrated typical basic usage of the Account object.
+
 ### Sample source code
 Find the sample that demonstrates AppKit usage source code here
 https://github.com/tonlabs/sdk-samples/tree/master/demo/hello
 
 ## Subscribe for Changes
 
-Sometime it is required to monitor for events related to an account 
-in realtime manner.
+Sometimes it is required to listen for events related to an account 
+in realtime.
 
-It is easy: just call one of the subscribe method of an account instance.
+It is easy: just call one of the `subscribe` methods of an account instance.
 
-For example if we need to track all changes in the account state 
+For example, if we need to track all changes in the account state 
 on the blockchain we can use `subscribeAccount`:
 
 ```ts
@@ -266,9 +265,9 @@ await hello.free();
 There are some situations where running the contract on the blockchain is not acceptable:
 - Writing a tests for developing contract.
 - Emulating execution for an existing account to detect failure reason or to calculate estimated fees.
-- Getting information from an existing account if it has a so called get methods.
+- Getting information from an existing account by running its get methods.
 
-In this case we can play with an account on the TVM included in TON SDK client library:
+In this cases we can play with an account on the TVM included in TON SDK client library:
 
 ```ts
 const hello = new Account(Hello, {signer});
@@ -292,13 +291,10 @@ const acc = new Account(MyAccount, {address: someAddress});
 
 // Contracts code and data will be downloaded from the blockchain
 // and used to execute on the local TVM.
-// Without any cost.
+// Without any fees.
 const lastBid = (await acc.runLocal("getLastBid", {})).decoded.output.lastBid; 
 console.log('Last bid is', lastBid);
 
 // As laways we need to cleanup resources associated with insdtance.
 await acc.free();
 ```
-
----
-Copyright 2018-2021 TON DEV SOLUTIONS LTD.
