@@ -11,7 +11,7 @@ Full API reference https://tonlabs.github.io/appkit-js/.
 
 [![Chat on Telegram](https://img.shields.io/badge/chat-on%20telegram-9cf.svg)](https://t.me/ton_sdk)
 
-## Table of content
+## Table of Сontent
 - [Table of content](#table-of-content)
 - [Useful links](#useful-links)
 - [Before You Start](#before-you-start)
