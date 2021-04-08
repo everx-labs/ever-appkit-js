@@ -4,6 +4,7 @@
 
 AppKit is built over the `@tonclient/core` package and purposed to simplify writing applications
 using Free TON core library.
+
 Full API reference https://tonlabs.github.io/appkit-js/.
 
 **Have a question? Get quick help in our channel:**
@@ -27,9 +28,8 @@ Full API reference https://tonlabs.github.io/appkit-js/.
 - [Subscribe for Changes](#subscribe-for-changes)
 
 ## Useful links
-
-To get a deeper understanding dive into
-our [SDK guides](https://docs.ton.dev/86757ecb2/p/37f8fc-guides) where you can find extensive
+- [Full API reference](https://tonlabs.github.io/appkit-js/)
+- [SDK guides](https://docs.ton.dev/86757ecb2/p/37f8fc-guides) - to get a deeper understanding dive into our sdk guides where you can find extensive
 explanations and descriptions of each step of DApp development on Free TON.
 
 ## Before You Start
