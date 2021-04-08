@@ -12,6 +12,8 @@ import {
     signerKeys,
     TonClient,
     ResultOfSubscribeCollection,
+    TransactionFees,
+    accountForExecutorUninit,
 } from "@tonclient/core";
 
 /**
@@ -115,6 +117,28 @@ export class AccountError extends Error {
     static missingTVC(): AccountError {
         return new AccountError("Can't calculate deploy params: missing required TVC.");
     }
+}
+
+/**
+ * Current type of the account.
+ */
+export enum AccountType {
+    /**
+     * Account exists in the blockchain but without smart contract.
+     */
+    uninit = 0,
+    /**
+     * Account exists in the blockchain with smart contract.
+     */
+    active = 1,
+    /**
+     * Account exists in the blockchain but it had frozen.
+     */
+    frozen = 2,
+    /**
+     * Account is missing in the blockchain.
+     */
+    nonExist = 3,
 }
 
 /**
@@ -296,6 +320,20 @@ export class Account {
     }
 
     /**
+     * Calculates detailed deploy fees.
+     */
+    async calcDeployFees(options?: AccountDeployOptions): Promise<TransactionFees> {
+        const deployParams = await this.getParamsOfDeployMessage(options);
+        const message = await this.client.abi.encode_message(deployParams);
+        const result = await this.client.tvm.run_executor({
+            account: accountForExecutorUninit(),
+            abi: this.abi,
+            message: message.message,
+        });
+        return result.fees;
+    }
+
+    /**
      * Deploys account into network
      * @param options
      */
@@ -313,6 +351,55 @@ export class Account {
         });
         this.needSyncWithTransaction(result.transaction);
         return result;
+    }
+
+    /**
+     * Emulate deploy
+     * @param options
+     */
+    async deployLocal(options?: AccountDeployOptions): Promise<ResultOfProcessMessage> {
+        const deployParams = this.getParamsOfDeployMessage(options);
+        const {
+            address,
+            message,
+        } = await this.client.abi.encode_message(deployParams);
+        const result = await this.client.tvm.run_executor({
+            account: accountForExecutorUninit(),
+            abi: this.abi,
+            message,
+            return_updated_account: true,
+        });
+        this.address = address;
+        this.cachedBoc = result.account;
+        return result;
+    }
+
+    /**
+     * Calculates detailed fees for specified run parameters.
+     *
+     * @param functionName Name of the function according to the ABI.
+     * @param input Object with function parameters (function parameters).
+     */
+    async calcRunFees(
+        functionName: string,
+        input: object,
+    ): Promise<TransactionFees> {
+        const message = await this.client.abi.encode_message({
+            address: await this.getAddress(),
+            abi: this.abi,
+            signer: this.signer,
+            call_set: {
+                function_name: functionName,
+                input,
+            },
+        });
+        let result;
+        result = await this.client.tvm.run_executor({
+            account: accountForExecutorAccount(await this.boc()),
+            abi: this.abi,
+            message: message.message,
+        });
+        return result.fees;
     }
 
     /**
@@ -447,11 +534,20 @@ export class Account {
      * Returns parsed data of the account.
      */
     async getAccount(): Promise<any> {
-        return (
-            await this.client.boc.parse_account({
-                boc: await this.boc(),
-            })
-        ).parsed;
+        try {
+            return (
+                await this.client.boc.parse_account({
+                    boc: await this.boc(),
+                })
+            ).parsed;
+        } catch (error) {
+            if (error.code !== 603) {
+                throw error;
+            }
+        }
+        return {
+            acc_type: AccountType.nonExist,
+        };
     }
 
     async subscribeAccount(fields: string, listener: (account: any) => void | Promise<void>) {
