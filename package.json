@@ -9,6 +9,7 @@
 		"url": "https://github.com/tonlabs/ton-client-js.git"
 	},
 	"scripts": {
+        "test": "npx jest",
 		"prepublishOnly": "npm i && npx tsc"
 	},
 	"keywords": [
