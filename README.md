@@ -1,11 +1,10 @@
-# Free TON JS Application Kit
+<p align="center"><a href="https://github.com/tonlabs/appkit-js"><img src="assets/ton-sdk-blue.png" height="60"/></a></p> 
+<h1 align="center">Free TON JS Application Kit</h1>
+<p align="center">This library is a part of Free TON SDK for JavaScript.</p>
+<p align="center">AppKit is built over the `@tonclient/core` package and purposed to simplify writing applications
+using Free TON core library.</p>
 
-This library is a part of Free TON SDK for JavaScript.
-
-AppKit is built over the `@tonclient/core` package and purposed to simplify writing applications
-using Free TON core library.
-
-See the full API reference at https://tonlabs.github.io/appkit-js/.
+**See the full API reference at https://tonlabs.github.io/appkit-js/.**
 
 **Have a question? Get quick help in our channel:**
 
@@ -15,19 +14,18 @@ To get a deeper understanding dive into
 our [SDK guides](https://docs.ton.dev/86757ecb2/p/37f8fc-guides) where you can find extensive
 explanations and descriptions of each step of DApp development on Free TON.
 
-- [Free TON JS Application Kit](#free-ton-js-application-kit)
-  - [Before You Start](#before-you-start)
-  - [Installation](#installation)
-  - [Setup Client Library](#setup-client-library)
-    - [NodeJs:](#nodejs)
-    - [Web:](#web)
-    - [React Native:](#react-native)
-  - [Create Client Instance](#create-client-instance)
-  - [A Few Words about the Code](#a-few-words-about-the-code)
-  - [Use Account Object](#use-account-object)
-    - [Sample source code](#sample-source-code)
-  - [Executing Contract on TVM](#executing-contract-on-tvm)
-  - [Subscribe for Changes](#subscribe-for-changes)
+- [Before You Start](#before-you-start)
+- [Installation](#installation)
+- [Setup Client Library](#setup-client-library)
+  - [NodeJs:](#nodejs)
+  - [Web:](#web)
+  - [React Native:](#react-native)
+- [Create Client Instance](#create-client-instance)
+- [A Few Words about the Code](#a-few-words-about-the-code)
+- [Use Account Object](#use-account-object)
+  - [Sample source code](#sample-source-code)
+- [Executing Contract on TVM](#executing-contract-on-tvm)
+- [Subscribe for Changes](#subscribe-for-changes)
 
 ## Before You Start
 
