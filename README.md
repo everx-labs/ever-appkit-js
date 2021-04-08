@@ -226,13 +226,79 @@ In the example above we demonstrated typical basic usage of the Account object.
 Find the sample that demonstrates AppKit usage source code here
 https://github.com/tonlabs/sdk-samples/tree/master/demo/hello
 
-## Executing Contract on TVM
-
-*Work in progress*
-
 ## Subscribe for Changes
 
-*Work in progress*
+Sometime it is required to monitor for events related to an account 
+in realtime manner.
+
+It is easy: just call one of the subscribe method of an account instance.
+
+For example if we need to track all changes in the account state 
+on the blockchain we can use `subscribeAccount`:
+
+```ts
+const hello = new Account(Hello, {signer});
+await hello.deploy();
+
+await hello.subscribeAccount("balance", (acc) => {
+    // This callback triggers every time the account data 
+    // is changed on the blockchain 
+    console.log("Account has updated. Current balance is ", parseInt(acc.balance));
+});
+
+await hello.subscribeMessages("boc", async (msg) => {
+    // This callback triggers every time the message related to this account 
+    // is appeared on the blockchain.
+    // Releated messages include inbound and outbound messages.  
+    console.log("Message is appeared ", msg);
+});
+
+// ...... do something with hello account ...........
+
+// In addition to other cleanup stuff the `free` method 
+// unsubscribes all active subscriptions for this account instance.
+await hello.free();
+
+```
+
+## Executing Contract on TVM
+
+There are some situations where running the contract on the blockchain is not acceptable:
+- Writing a tests for developing contract.
+- Emulating execution for an existing account to detect failure reason or to calculate estimated fees.
+- Getting information from an existing account if it has a so called get methods.
+
+In this case we can play with an account on the TVM included in TON SDK client library:
+
+```ts
+const hello = new Account(Hello, {signer});
+
+// We don't deploy contract on real network.
+// We just emulate it. After this call the hello instance
+// will have an account boc that can be used in consequent 
+// calls.
+await hello.deployLocal();
+
+// We execute contract locally.
+// But exactly the same way as it executes on the real blockchain.
+const result = await hello.runLocal("touch", {}); 
+console.log('Touch output', result);
+```
+
+We can call get method on accounts in the blockchain:
+
+```ts
+const acc = new Account(MyAccount, {address: someAddress});
+
+// Contracts code and data will be downloaded from the blockchain
+// and used to execute on the local TVM.
+// Without any cost.
+const lastBid = (await acc.runLocal("getLastBid", {})).decoded.output.lastBid; 
+console.log('Last bid is', lastBid);
+
+// As laways we need to cleanup resources associated with insdtance.
+await acc.free();
+```
 
 ---
 Copyright 2018-2021 TON DEV SOLUTIONS LTD.
