@@ -40,7 +40,7 @@ test("Account Basic Usage", async () => {
     expect(timestamp).toBeGreaterThan(startTime);
 });
 
-test("Calc Fess", async () => {
+test("Calc Fees", async () => {
     const client = TonClient.default;
     const account = new Account(helloContract(), {
         signer: signerKeys(await client.crypto.generate_random_sign_keys()),
