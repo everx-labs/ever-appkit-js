@@ -30,6 +30,9 @@ If this package helped you, please give it a star:)
 
 ## Useful links
 - [Full API reference](https://tonlabs.github.io/appkit-js/)
+
+- [Appkit samples](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples)
+
 - [SDK guides](https://docs.ton.dev/86757ecb2/p/37f8fc-guides) - to get a deeper understanding dive into our sdk guides where you can find extensive
 explanations and descriptions of each step of DApp development on Free TON.
 
@@ -37,8 +40,6 @@ explanations and descriptions of each step of DApp development on Free TON.
 
 We strongly recommend to install [TONDEV](https://github.com/tonlabs/tondev) utility before you start playing with TON AppKit. This is
 an ultimate set of tools for Free TON development.
-
-Also we recommend the [TONDEV](https://github.com/tonlabs/tondev-vscode) extension for Visual Studio Code users.
 
 ## Installation
 
