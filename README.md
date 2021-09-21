@@ -38,8 +38,7 @@ explanations and descriptions of each step of DApp development on Free TON.
 
 ## Before You Start
 
-We strongly recommend to install [TONDEV](https://github.com/tonlabs/tondev) utility before you start playing with TON AppKit. This is
-an ultimate set of tools for Free TON development.
+We strongly recommend to install [TONDEV](https://github.com/tonlabs/tondev) utility before you start playing with TON AppKit. This utility will help you manage your tools for Free TON development.
 
 ## Installation
 
@@ -62,8 +61,7 @@ npm i --save @tonclient/appkit
 
 ## Setup Client Library
 
-You must initialize the core library before the first use. The best place to do it is an
-initialization code of your application.
+You must initialize the core library before the first use. The best place to do it is in the initialization code of your application.
 
 ### NodeJs:
 
@@ -129,6 +127,8 @@ const client = new TonClient({
 ```
 
 In this sample we create a client instance configured to use local blockchain [TON OS SE](https://github.com/tonlabs/tonos-se) instance.
+
+If you want to work with Developer Network or Free TON network, please use the [list of endpoints, listed here](https://docs.ton.dev/86757ecb2/p/85c869-networks). **Attention** You must specify all the endpoints as a array in `endpoints` parameter, because each endpoint does not guarantee its availability, but we guarantee that at least one endopoint is operational at the moment. 
 
 ## A Few Words about the Code
 
