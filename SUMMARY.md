@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Introduction](README.md)
+* [Free TON JS Application Kit](README.md)
 
 ## guides
 

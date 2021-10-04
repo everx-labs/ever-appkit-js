@@ -1,4 +1,4 @@
-# Introduction
+# Free TON JS Application Kit
 
 [![](.gitbook/assets/ton-sdk-blue.png)](https://github.com/tonlabs/appkit-js)
 
