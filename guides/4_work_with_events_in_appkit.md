@@ -16,7 +16,7 @@ When contract emits an event, you can fetch it from blockchain or you can subscr
 
 Events in blockchain are external outbound messages. In GraphQL API their `msg_type` is 2:
 
-![https://github.com/tonlabs/TON-SDK/blob/master/guides/screenshots/scr1.png](https://github.com/tonlabs/TON-SDK/blob/master/guides/screenshots/scr1.png)
+![scr1.jpg](scr1.jpg)
 
 ## Query/subscribe to events
 
