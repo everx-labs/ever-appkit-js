@@ -1,6 +1,4 @@
-# Add SDK to your App
-
-## Deploy with AppKit
+# Deploy with AppKit
 
 Find out how to deploy a contract to Free TON Blockchain with SDK
 

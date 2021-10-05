@@ -1,6 +1,4 @@
-# Add Contract to your App
-
-## Run ABI Get Method with AppKit
+# Run ABI Get Method with AppKit
 
 * [About ABI Get Method](3_run_abi_get_method_with_appkit.md#about-abi-get-method)
 * [Run ABI get method](3_run_abi_get_method_with_appkit.md#run-abi-get-method)

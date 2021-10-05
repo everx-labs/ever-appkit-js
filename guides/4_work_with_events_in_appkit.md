@@ -1,6 +1,4 @@
-# Add Contract to your App
-
-## Work with Events in AppKit
+# Work with Events in AppKit
 
 How to work with contract events
 

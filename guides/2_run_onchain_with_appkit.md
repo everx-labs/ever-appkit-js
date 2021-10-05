@@ -1,6 +1,4 @@
-# Configure SDK
-
-## Run On-chain with AppKit
+# Run On-chain with AppKit
 
 Learn how to run methods of a contract on-chain
 
