@@ -1,7 +1,5 @@
 # Free TON JS Application Kit
 
-[![](.gitbook/assets/ton-sdk-blue.png)](https://github.com/tonlabs/appkit-js)
-
 ## Free TON JS Application Kit
 
 This library is a part of Free TON SDK for JavaScript.
