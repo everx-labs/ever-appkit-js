@@ -16,7 +16,7 @@ When contract emits an event, you can fetch it from blockchain or you can subscr
 
 Events in blockchain are external outbound messages. In GraphQL API their `msg_type` is 2:
 
-![scr1.jpg](scr1.jpg)
+![scr1.jpg](../.gitbook/assets/scr1.jpg)
 
 ## Query/subscribe to events
 

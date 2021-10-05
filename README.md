@@ -1,7 +1,5 @@
 # Free TON JS Application Kit
 
-## Free TON JS Application Kit
-
 This library is a part of Free TON SDK for JavaScript.
 
 AppKit is built over the [@tonclient/core](https://github.com/tonlabs/ton-client-js) package and purposed to simplify writing applications on Free TON.
