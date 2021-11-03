@@ -5,16 +5,16 @@
 ## reference
 
 * [Glossary](glossary.md)
-* [AppKit Reference](https://github.com/tonlabs/appkit-js/tree/main/docs/reference)
+* [AppKit Reference](https://tonlabs.github.io/appkit-js/)
 
 ## guides
 
-* [AppKit Guides](guides/appkit_guides.md)
-* [Configure AppKit](guides/configure_appkit.md)
-* [Deploy with AppKit](guides/deploy_with_appkit.md)
-* [Run On-chain with AppKit](guides/run_onchain_with_appkit.md)
-* [Run ABI Get Method with AppKit](guides/run_abi_get_method_with_appkit.md)
-* [Work with Events in AppKit](guides/work_with_events_in_appkit.md)
+* [AppKit Guides](guides/appkit\_guides.md)
+* [Configure AppKit](guides/configure\_appkit.md)
+* [Deploy with AppKit](guides/deploy\_with\_appkit.md)
+* [Run On-chain with AppKit](guides/run\_onchain\_with\_appkit.md)
+* [Run ABI Get Method with AppKit](guides/run\_abi\_get\_method\_with\_appkit.md)
+* [Work with Events in AppKit](guides/work\_with\_events\_in\_appkit.md)
 
 ***
 
