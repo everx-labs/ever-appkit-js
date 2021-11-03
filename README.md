@@ -14,20 +14,20 @@ If this package helped you, please give it a star:)
 
 ## Table of Contents
 
-* [Useful links](./#useful-links)
-* [Before You Start](./#before-you-start)
-* [Installation](./#installation)
-* [Setup Client Library](./#setup-client-library)
-  * [NodeJs:](./#nodejs)
-  * [Web:](./#web)
-  * [React Native:](./#react-native)
-* [Create Client Instance](./#create-client-instance)
-* [A Few Words about the Code](./#a-few-words-about-the-code)
-* [Use Account Object](./#use-account-object)
-  * [Sample source code](./#sample-source-code)
-* [Subscribe for Changes](./#subscribe-for-changes)
-* [Executing Contract on TVM](./#executing-contract-on-tvm)
-* [Interacting with Core SDK](./#interacting-with-core-sdk)
+  - [Useful links](#useful-links)
+  - [Before You Start](#before-you-start)
+  - [Installation](#installation)
+  - [Setup Client Library](#setup-client-library)
+    - [NodeJs:](#nodejs)
+    - [Web:](#web)
+    - [React Native:](#react-native)
+  - [Create Client Instance](#create-client-instance)
+  - [A Few Words about the Code](#a-few-words-about-the-code)
+  - [Use Account Object](#use-account-object)
+    - [Sample source code](#sample-source-code)
+  - [Subscribe for Changes](#subscribe-for-changes)
+  - [Executing Contract on TVM](#executing-contract-on-tvm)
+  - [Interacting with Core SDK](#interacting-with-core-sdk)
 
 ## Useful links
 
@@ -127,7 +127,7 @@ const client = new TonClient({
 
 In this sample we create a client instance configured to use local blockchain [TON OS SE](https://github.com/tonlabs/tonos-se) instance.
 
-If you want to work with Developer Network or Free TON network, please use the [list of endpoints, listed here](https://tonlabs.gitbook.io/ton-sdk/reference/ton-os-api/networks). \*\* Attention\*\* You must specify all the endpoints as an array in `endpoints` parameter, because each endpoint does not guarantee its availability, but we guarantee that at least one endpoint is operational at the moment.
+If you want to work with Developer Network or Free TON network, please use the [list of endpoints, listed here](https://tonlabs.gitbook.io/ton-sdk/reference/ton-os-api/networks). **Attention** You must specify all the endpoints as an array in `endpoints` parameter, because each endpoint does not guarantee its availability, but we guarantee that at least one endpoint is operational at the moment.
 
 ## A Few Words about the Code
 
