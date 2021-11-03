@@ -6,11 +6,11 @@ AppKit is built over the [@tonclient/core](https://github.com/tonlabs/ton-client
 
 Full API reference [https://tonlabs.github.io/appkit-js/](https://tonlabs.github.io/appkit-js/).
 
-If this package helped you, please give it a star:\)
+If this package helped you, please give it a star:)
 
 **Have a question? Get quick help in our channel:**
 
-[![Chat on Telegram](https://img.shields.io/badge/chat-on%20telegram-9cf.svg)](https://t.me/ton_sdk)
+[![Chat on Telegram](https://img.shields.io/badge/chat-on%20telegram-9cf.svg)](https://t.me/ton\_sdk)
 
 ### Table of Сontent
 
@@ -33,7 +33,7 @@ If this package helped you, please give it a star:\)
 
 * [Full API reference](https://tonlabs.github.io/appkit-js/)
 * [Appkit samples](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples)
-* [SDK guides](https://docs.ton.dev/86757ecb2/p/37f8fc-guides) - to get a deeper understanding dive into our sdk guides where you can find extensive explanations and descriptions of each step of DApp development on Free TON.
+* [SDK guides](https://tonlabs.gitbook.io/ton-sdk/guides/quick\_start) - to get a deeper understanding dive into our sdk guides where you can find extensive explanations and descriptions of each step of DApp development on Free TON.
 
 ### Before You Start
 
@@ -63,7 +63,7 @@ npm i --save @tonclient/lib-react-native
 
 npm i --save @tonclient/appkit
 
-```text
+````
 ## Setup Client Library
 
 You must initialize the core library before the first use. The best place to do it is in the initialization code of your application.
@@ -77,7 +77,7 @@ const { libNode } = require("@tonclient/lib-node");
 // Application initialization
 
 TonClient.useBinaryLibrary(libNode)
-```
+````
 
 #### Web:
 
@@ -92,7 +92,7 @@ TonClient.useBinaryLibrary(libWeb);
 
 By default the library loads wasm module from relative URL `/tonclient.wasm`.
 
-You can specify alternative URL if you want to place \(or rename\) wasm module.
+You can specify alternative URL if you want to place (or rename) wasm module.
 
 ```javascript
 import { TonClient } from "@tonclient/core";
@@ -133,13 +133,13 @@ const client = new TonClient({
 
 In this sample we create a client instance configured to use local blockchain [TON OS SE](https://github.com/tonlabs/tonos-se) instance.
 
-If you want to work with Developer Network or Free TON network, please use the [list of endpoints, listed here](https://docs.ton.dev/86757ecb2/p/85c869-networks). **Attention** You must specify all the endpoints as a array in `endpoints` parameter, because each endpoint does not guarantee its availability, but we guarantee that at least one endopoint is operational at the moment.
+If you want to work with Developer Network or Free TON network, please use the [list of endpoints, listed here](https://tonlabs.gitbook.io/ton-sdk/reference/ton-os-api/networks). **Attention:** You must specify all the endpoints as a array in `endpoints` parameter, because each endpoint does not guarantee its availability, but we guarantee that at least one endopoint is operational at the moment.
 
 ### A Few Words about the Code
 
-Below we use a code snippets to illustrate `AppKit` usage.  
-In this code we omit an initialization part because it is the same.  
-We suppose that we are using lib-node bridge \(NodeJs\) to write examples. Also we use the library to deal with local [TON OS SE](https://github.com/tonlabs/tonos-se) instance.
+Below we use a code snippets to illustrate `AppKit` usage.\
+In this code we omit an initialization part because it is the same.\
+We suppose that we are using lib-node bridge (NodeJs) to write examples. Also we use the library to deal with local [TON OS SE](https://github.com/tonlabs/tonos-se) instance.
 
 So the full code of each example can look like this:
 
@@ -169,11 +169,11 @@ async function main(client) {
 
 ### Use Account Object
 
-At the moment the key point of `AppKit` is an Account object \(class\). Application uses an Account instance to deal with specific blockchain [account](https://github.com/a-zorina/appkit-js/tree/7a5f126edae5f4f009a7bb71b9830d0595e1c497/docs/glossary.md#account) using specific owner \(signer in term of TonClient library\).
+At the moment the key point of `AppKit` is an Account object (class). Application uses an Account instance to deal with specific blockchain [account](docs/glossary.md#account) using specific owner (signer in term of TonClient library).
 
-Each Account instance must use an [ABI](https://github.com/a-zorina/appkit-js/tree/7a5f126edae5f4f009a7bb71b9830d0595e1c497/docs/glossary.md#abi) compliant contract. So we have to define the `Contract` object with an ABI and optionally [tvc](https://github.com/a-zorina/appkit-js/tree/7a5f126edae5f4f009a7bb71b9830d0595e1c497/docs/glossary.md#tvc) fields. This object must be provided to the Account constructor.
+Each Account instance must use an [ABI](docs/glossary.md#abi) compliant contract. So we have to define the `Contract` object with an ABI and optionally [tvc](docs/glossary.md#tvc) fields. This object must be provided to the Account constructor.
 
-In the example below we use predefined [giver](https://github.com/a-zorina/appkit-js/tree/7a5f126edae5f4f009a7bb71b9830d0595e1c497/docs/glossary.md#giver) already included in AppKit and predeployed in TONOS SE.
+In the example below we use predefined [giver](docs/glossary.md#giver) already included in AppKit and predeployed in TONOS SE.
 
 ```javascript
 // Define Contract object.
@@ -221,7 +221,7 @@ In the example above we demonstrated typical basic usage of the Account object.
 
 #### Sample source code
 
-Find the sample that demonstrates AppKit usage source code here [https://github.com/tonlabs/sdk-samples/tree/master/demo/hello](https://github.com/tonlabs/sdk-samples/tree/master/demo/hello)
+Find the sample that demonstrates AppKit usage source code here&#x20;
 
 ### Subscribe for Changes
 
@@ -294,4 +294,3 @@ console.log('Last bid is', lastBid);
 // As laways we need to cleanup resources associated with insdtance.
 await acc.free();
 ```
-
