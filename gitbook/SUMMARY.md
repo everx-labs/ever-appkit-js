@@ -19,7 +19,7 @@
 * [Run ABI Get Method](guides/run\_abi\_get\_method.md)
 * [Work with Events](guides/work\_with\_events.md)
 
-***
+## Links
 
-* [TON SDK documentation](https://tonlabs.gitbook.io/ton-sdk/)
 * [AppKit JS repository](https://github.com/tonlabs/appkit-js)
+* [TON SDK documentation](https://tonlabs.gitbook.io/ton-sdk/)
