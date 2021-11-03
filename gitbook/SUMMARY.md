@@ -4,8 +4,11 @@
 
 ## reference
 
-* [Glossary](glossary.md)
 * [AppKit Reference](https://tonlabs.github.io/appkit-js/)
+
+## Samples
+
+* [AppKit Samples](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples)
 
 ## guides
 
@@ -19,3 +22,4 @@
 ***
 
 * [TON SDK documentation](https://tonlabs.gitbook.io/ton-sdk/)
+* [GitHub repository](https://github.com/tonlabs/appkit-js)

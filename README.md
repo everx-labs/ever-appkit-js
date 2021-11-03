@@ -163,11 +163,11 @@ async function main(client) {
 
 ## Use Account Object
 
-At the moment the key point of `AppKit` is an Account object (class). Application uses an Account instance to deal with specific blockchain [account](docs/glossary.md#account) using specific owner ( signer in terms of TonClient library).
+At the moment the key point of `AppKit` is an Account object (class). Application uses an Account instance to deal with specific blockchain account using specific owner ( signer in terms of TonClient library).
 
-Each Account instance must use an [ABI](docs/glossary.md#abi) compliant contract. So we have to define the `Contract` object with an ABI and optionally [tvc](docs/glossary.md#tvc) fields. This object must be provided to the Account constructor.
+Each Account instance must use an ABI compliant contract. So we have to define the `Contract` object with an ABI and optionally tvc fields. This object must be provided to the Account constructor.
 
-In the example below we use predefined [giver](docs/glossary.md#giver) already included in AppKit and predeployed in TONOS SE.
+In the example below we use predefined giver already included in AppKit and predeployed in TONOS SE.
 
 ```javascript
 // Define Contract object.
