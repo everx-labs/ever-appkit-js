@@ -1,8 +1,8 @@
-# Run ABI Get Method with AppKit
+# Run ABI Get Method
 
-* [About ABI Get Method](run_abi_get_method_with_appkit.md#about-abi-get-method)
-* [Run ABI get method](run_abi_get_method_with_appkit.md#run-abi-get-method)
-* [Sample source code](run_abi_get_method_with_appkit.md#sample-source-code)
+* [About ABI Get Method](run\_abi\_get\_method.md#about-abi-get-method)
+* [Run ABI get method](run\_abi\_get\_method.md#run-abi-get-method)
+* [Sample source code](run\_abi\_get\_method.md#sample-source-code)
 
 ## About ABI Get Method
 
@@ -14,7 +14,7 @@ ABI compatible contract - a contract which has an ABI interface.
 
 AppKit provides `runLocal` method for running get methods of ABI-compatible contracts.
 
-```text
+```
 const dePoolAddress = "0:a07c4668a8ac1801b5ea77c86e317ca027d76c288c6da4d29d7d1fd716aff40a";
 
 const dePoolAcc = new Account(DePoolContract, {
@@ -38,5 +38,4 @@ console.log(`\nDePool Balance Nano Crystal:`, response.decoded.output.value0);
 
 Observe the full sample: [https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples/depool-statistics](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples/depool-statistics)
 
-Check out [core api documentation](https://tonlabs.gitbook.io/ton-sdk/guides/work_with_contracts/run_abi_get_method) for more information about running get methods.
-
+Check out [core api documentation](https://tonlabs.gitbook.io/ton-sdk/guides/work\_with\_contracts/run\_abi\_get\_method) for more information about running get methods.

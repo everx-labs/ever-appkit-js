@@ -1,15 +1,15 @@
-# Deploy with AppKit
+# Deploy
 
 Find out how to deploy a contract to Free TON Blockchain with SDK
 
-* [About Deploy](deploy_with_appkit.md#about-deploy)
-* [Deploy steps](deploy_with_appkit.md#deploy-steps)
-* [Initialize Account object](deploy_with_appkit.md#initialize-account-object)
-* [Calculate the future address of the contract](deploy_with_appkit.md#calculate-the-future-address-of-the-contract)
-* [Define deploy parameters](deploy_with_appkit.md#define-deploy-parameters)
-* [Specify Giver](deploy_with_appkit.md#specify-giver)
-* [Deploy](deploy_with_appkit.md#deploy)
-* [Sample source code](deploy_with_appkit.md#sample-source-code)
+* [About Deploy](deploy.md#about-deploy)
+* [Deploy steps](deploy.md#deploy-steps)
+* [Initialize Account object](deploy.md#initialize-account-object)
+* [Calculate the future address of the contract](deploy.md#calculate-the-future-address-of-the-contract)
+* [Define deploy parameters](deploy.md#define-deploy-parameters)
+* [Specify Giver](deploy.md#specify-giver)
+* [Deploy](deploy.md#deploy)
+* [Sample source code](deploy.md#sample-source-code)
 
 ## About Deploy
 
@@ -23,8 +23,8 @@ To deploy a contract you need to sponsor its address, so that deploy fee will be
 
 Below is the sequence of steps you need to complete to deploy a contract:
 
-1. Initialize Account object with Contract data and a pair of keys that will be used later to interact with it. 
-2. Calculate future address of the contract - In this case - just for information. 
+1. Initialize Account object with Contract data and a pair of keys that will be used later to interact with it.
+2. Calculate future address of the contract - In this case - just for information.
 3. Deploy
 
 Let's take a look at every step.
@@ -33,10 +33,10 @@ Let's take a look at every step.
 
 To initialize an account, we need:
 
-* Contract object, that we import from `HelloContract.js`. We prepared this file when [adding contract to our app](https://tonlabs.gitbook.io/ton-sdk/guides/installation/add_contract_to_your_app).
+* Contract object, that we import from `HelloContract.js`. We prepared this file when [adding contract to our app](https://tonlabs.gitbook.io/ton-sdk/guides/installation/add\_contract\_to\_your\_app).
 * Account options, that are passed as the following structure:
 
-```text
+```
     export type AccountOptions = {
     /**
      * Initial contract data, that is stored to contract data (along with pubkey) during deploy, that will affect account address. You can pass here data defined as public in the contract
@@ -63,7 +63,7 @@ We will generate a pair of keys with `generate_random_sign_keys` function and us
 
 We do not have any `initData` here, we do not know the address yet, and we will use the default client, so the only field we define in the second parameter `AccountOptions` is Signer.
 
-```text
+```
 // Generate an ed25519 key pair for new account
 const helloAcc = new Account(HelloContract, {
     signer: signerKeys(await TonClient.default.crypto.generate_random_sign_keys()),
@@ -72,7 +72,7 @@ const helloAcc = new Account(HelloContract, {
 
 Or you can use a predefined set of keys.
 
-```text
+```
 const keys  = {
         secret: "00232a8e5c0b156cbfe4fd41f9ca9194168fd441c18101526eec2567d36f22db"
         public: "f36f1bbfd0768ff4461e5743152180b9767519c40fe697cca0c1bfdfb622e11d",         
@@ -85,7 +85,7 @@ TON blockchain requires every contract to have a positive token balance before d
 
 Under the hood this calculation is performed on tvc, `initData` and `pubkey`.
 
-```text
+```
 const address = await helloAcc.getAddress();
 console.log(`Future address of the contract will be: ${address}`);
 ```
@@ -94,7 +94,7 @@ console.log(`Future address of the contract will be: ${address}`);
 
 To deploy a contract we need to pass `AccountDeployOptions` structure into `deploy` method:
 
-```text
+```
 export type AccountDeployOptions = {
 /**
  * Function name that will be run on deploy. Special values:
@@ -123,7 +123,7 @@ useGiver?: true | AccountGiver,
 
 By default `Account.getDefaultGiver()` is [TON OS SE giver](https://github.com/tonlabs/tonos-se/tree/master/contracts). It is integrated into Account module. We will use it. But you can always re-define it with method `Account.giver(newGiver: AccountGiver)` with the following signature:
 
-```text
+```
 /**
  * Object that can be used to send some value to an address 
  */
@@ -134,7 +134,7 @@ export type AccountGiver = (address: string, value: number) => Promise<void>;
 
 Because our contract has a constructor function as init function without parameters, we can omit the other 2 deploy parameters:
 
-```text
+```
 // Request contract deployment funds form a local TON OS SE giver
     // not suitable for other networks.
     // Deploy `hello` contract.
@@ -146,5 +146,4 @@ Because our contract has a constructor function as init function without paramet
 
 [https://github.com/tonlabs/sdk-samples/blob/master/demo/hello-wallet/index.js](https://github.com/tonlabs/sdk-samples/blob/master/demo/hello-wallet/index.js)
 
-Check out [core api documentation](https://tonlabs.gitbook.io/ton-sdk/guides/work_with_contracts/deploy) for more information.
-
+Check out [core api documentation](https://tonlabs.gitbook.io/ton-sdk/guides/work\_with\_contracts/deploy) for more information.

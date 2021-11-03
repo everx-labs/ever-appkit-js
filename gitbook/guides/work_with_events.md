@@ -1,14 +1,14 @@
-# Work with Events in AppKit
+# Work with Events
 
 How to work with contract events
 
-* [About events](work_with_events_in_appkit.md#about-events)
-* [Query/subscribe to events](work_with_events_in_appkit.md#querysubscribe-to-events)
-* [Query/Subscribe with SDK](work_with_events_in_appkit.md#querysubscribe-with-sdk)
-* [AppKit syntax](work_with_events_in_appkit.md#appkit-syntax)
-  * [Query](work_with_events_in_appkit.md#query)
-  * [Subscribe](work_with_events_in_appkit.md#subscribe)
-  * [Decode](work_with_events_in_appkit.md#decode)
+* [About events](work\_with\_events.md#about-events)
+* [Query/subscribe to events](work\_with\_events.md#querysubscribe-to-events)
+* [Query/Subscribe with SDK](work\_with\_events.md#querysubscribe-with-sdk)
+* [AppKit syntax](work\_with\_events.md#appkit-syntax)
+  * [Query](work\_with\_events.md#query)
+  * [Subscribe](work\_with\_events.md#subscribe)
+  * [Decode](work\_with\_events.md#decode)
 
 ## About events
 
@@ -22,7 +22,7 @@ Events in blockchain are external outbound messages. In GraphQL API their `msg_t
 
 You can fetch events of you contract with this filter from graphql. Try it out in playground [main.ton.dev/graphql](https://main.ton.dev/graphql):
 
-```text
+```
 query{
 messages(
       filter:{ 
@@ -43,7 +43,7 @@ messages(
 
 Or subscribe to them:
 
-```text
+```
 subscription{
 messages(
       filter:{ 
@@ -66,7 +66,7 @@ messages(
 
 Let's assume our contract code is this:
 
-```text
+```
 pragma ton-solidity >= 0.38.2;
 pragma AbiHeader expire;
 
@@ -130,7 +130,7 @@ See the full sample here [https://github.com/tonlabs/sdk-samples/tree/master/app
 
 To fetch all the events do this query. It uses low level api, AppKit does not provide query options for account yet.
 
-```text
+```
 result = (await client.net.query_collection({
         collection: "messages",
         filter: {
@@ -147,13 +147,13 @@ result = (await client.net.query_collection({
 
 To subscribe to new events do this. Don't forget to specify your own callback.
 
-```text
+```
 await account.subscribeMessages("boc",callback)
 ```
 
 ### Decode
 
-```text
+```
 const decoded = await hello.decodeMessage(msg.boc);
             switch (decoded.body_type) {
                 // Message that triggered an on-chain contract call
@@ -180,5 +180,4 @@ const decoded = await hello.decodeMessage(msg.boc);
             }
 ```
 
-Check out [core api documentation](https://tonlabs.gitbook.io/ton-sdk/guides/work_with_contracts/work_with_events) for more information.
-
+Check out [core api documentation](https://tonlabs.gitbook.io/ton-sdk/guides/work\_with\_contracts/work\_with\_events) for more information.

@@ -1,10 +1,10 @@
-# Run On-chain with AppKit
+# Run On-chain
 
 Learn how to run methods of a contract on-chain
 
-* [About Run](run_onchain_with_appkit.md#about-run)
-* [Run on-chain](run_onchain_with_appkit.md#run-on-chain)
-* [Sample source code](run_onchain_with_appkit.md#sample-source-code)
+* [About Run](run\_onchain.md#about-run)
+* [Run on-chain](run\_onchain.md#run-on-chain)
+* [Sample source code](run\_onchain.md#sample-source-code)
 
 ## About Run
 
@@ -22,7 +22,7 @@ Run operation consists of few steps:
 
 For running methods of ABI-compatible contracts AppKit provides `run` method:
 
-```text
+```
  // Call `touch` function
 let response = await helloAcc.run("touch", {});
 ```
@@ -31,5 +31,4 @@ let response = await helloAcc.run("touch", {});
 
 Observe the full sample: [https://github.com/tonlabs/sdk-samples/tree/master/demo/hello-wallet](https://github.com/tonlabs/sdk-samples/tree/master/demo/hello-wallet)
 
-Check out [core api documentation](https://tonlabs.gitbook.io/ton-sdk/guides/work_with_contracts/run_onchain) for more information about running a contract.
-
+Check out [core api documentation](https://tonlabs.gitbook.io/ton-sdk/guides/work\_with\_contracts/run\_onchain) for more information about running a contract.

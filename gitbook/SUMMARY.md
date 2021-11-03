@@ -14,12 +14,12 @@
 
 * [AppKit Guides](guides/appkit\_guides.md)
 * [Configure AppKit](guides/configure\_appkit.md)
-* [Deploy with AppKit](guides/deploy\_with\_appkit.md)
-* [Run On-chain with AppKit](guides/run\_onchain\_with\_appkit.md)
-* [Run ABI Get Method with AppKit](guides/run\_abi\_get\_method\_with\_appkit.md)
-* [Work with Events in AppKit](guides/work\_with\_events\_in\_appkit.md)
+* [Deploy](guides/deploy.md)
+* [Run On-chain](guides/run\_onchain.md)
+* [Run ABI Get Method](guides/run\_abi\_get\_method.md)
+* [Work with Events](guides/work\_with\_events.md)
 
 ***
 
 * [TON SDK documentation](https://tonlabs.gitbook.io/ton-sdk/)
-* [GitHub repository](https://github.com/tonlabs/appkit-js)
+* [AppKit JS repository](https://github.com/tonlabs/appkit-js)
