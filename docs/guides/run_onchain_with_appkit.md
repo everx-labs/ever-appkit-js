@@ -2,9 +2,9 @@
 
 Learn how to run methods of a contract on-chain
 
-* [About Run](2_run_onchain_with_appkit.md#about-run)
-* [Run on-chain](2_run_onchain_with_appkit.md#run-on-chain)
-* [Sample source code](2_run_onchain_with_appkit.md#sample-source-code)
+* [About Run](run_onchain_with_appkit.md#about-run)
+* [Run on-chain](run_onchain_with_appkit.md#run-on-chain)
+* [Sample source code](run_onchain_with_appkit.md#sample-source-code)
 
 ## About Run
 
@@ -31,5 +31,5 @@ let response = await helloAcc.run("touch", {});
 
 Observe the full sample: [https://github.com/tonlabs/sdk-samples/tree/master/demo/hello-wallet](https://github.com/tonlabs/sdk-samples/tree/master/demo/hello-wallet)
 
-Check out [core api documentation](https://github.com/tonlabs/TON-SDK/blob/master/guides/work_with_contracts/2_run_onchain.md) for more information about running a contract.
+Check out [core api documentation](https://tonlabs.gitbook.io/ton-sdk/guides/work_with_contracts/run_onchain) for more information about running a contract.
 

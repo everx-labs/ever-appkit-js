@@ -2,14 +2,14 @@
 
 Find out how to deploy a contract to Free TON Blockchain with SDK
 
-* [About Deploy](1_deploy_with_appkit.md#about-deploy)
-* [Deploy steps](1_deploy_with_appkit.md#deploy-steps)
-* [Initialize Account object](1_deploy_with_appkit.md#initialize-account-object)
-* [Calculate the future address of the contract](1_deploy_with_appkit.md#calculate-the-future-address-of-the-contract)
-* [Define deploy parameters](1_deploy_with_appkit.md#define-deploy-parameters)
-* [Specify Giver](1_deploy_with_appkit.md#specify-giver)
-* [Deploy](1_deploy_with_appkit.md#deploy)
-* [Sample source code](1_deploy_with_appkit.md#sample-source-code)
+* [About Deploy](deploy_with_appkit.md#about-deploy)
+* [Deploy steps](deploy_with_appkit.md#deploy-steps)
+* [Initialize Account object](deploy_with_appkit.md#initialize-account-object)
+* [Calculate the future address of the contract](deploy_with_appkit.md#calculate-the-future-address-of-the-contract)
+* [Define deploy parameters](deploy_with_appkit.md#define-deploy-parameters)
+* [Specify Giver](deploy_with_appkit.md#specify-giver)
+* [Deploy](deploy_with_appkit.md#deploy)
+* [Sample source code](deploy_with_appkit.md#sample-source-code)
 
 ## About Deploy
 
@@ -33,7 +33,7 @@ Let's take a look at every step.
 
 To initialize an account, we need:
 
-* Contract object, that we import from `HelloContract.js`. We prepared this file when [adding contract to our app](https://github.com/tonlabs/TON-SDK/blob/master/guides/installation/3_add_contract_to_your_app.md).
+* Contract object, that we import from `HelloContract.js`. We prepared this file when [adding contract to our app](https://tonlabs.gitbook.io/ton-sdk/guides/installation/add_contract_to_your_app).
 * Account options, that are passed as the following structure:
 
 ```text
@@ -146,5 +146,5 @@ Because our contract has a constructor function as init function without paramet
 
 [https://github.com/tonlabs/sdk-samples/blob/master/demo/hello-wallet/index.js](https://github.com/tonlabs/sdk-samples/blob/master/demo/hello-wallet/index.js)
 
-Check out [core api documentation](https://github.com/tonlabs/TON-SDK/blob/master/guides/work_with_contracts/1_deploy.md) for more information.
+Check out [core api documentation](https://tonlabs.gitbook.io/ton-sdk/guides/work_with_contracts/deploy) for more information.
 

@@ -1,8 +1,8 @@
 # Run ABI Get Method with AppKit
 
-* [About ABI Get Method](3_run_abi_get_method_with_appkit.md#about-abi-get-method)
-* [Run ABI get method](3_run_abi_get_method_with_appkit.md#run-abi-get-method)
-* [Sample source code](3_run_abi_get_method_with_appkit.md#sample-source-code)
+* [About ABI Get Method](run_abi_get_method_with_appkit.md#about-abi-get-method)
+* [Run ABI get method](run_abi_get_method_with_appkit.md#run-abi-get-method)
+* [Sample source code](run_abi_get_method_with_appkit.md#sample-source-code)
 
 ## About ABI Get Method
 
@@ -38,5 +38,5 @@ console.log(`\nDePool Balance Nano Crystal:`, response.decoded.output.value0);
 
 Observe the full sample: [https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples/depool-statistics](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples/depool-statistics)
 
-Check out [core api documentation](https://github.com/tonlabs/TON-SDK/blob/master/guides/work_with_contracts/3_run_abi_get_method.md) for more information about running get methods.
+Check out [core api documentation](https://tonlabs.gitbook.io/ton-sdk/guides/work_with_contracts/run_abi_get_method) for more information about running get methods.
 

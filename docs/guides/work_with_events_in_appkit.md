@@ -2,13 +2,13 @@
 
 How to work with contract events
 
-* [About events](4_work_with_events_in_appkit.md#about-events)
-* [Query/subscribe to events](4_work_with_events_in_appkit.md#querysubscribe-to-events)
-* [Query/Subscribe with SDK](4_work_with_events_in_appkit.md#querysubscribe-with-sdk)
-* [AppKit syntax](4_work_with_events_in_appkit.md#appkit-syntax)
-  * [Query](4_work_with_events_in_appkit.md#query)
-  * [Subscribe](4_work_with_events_in_appkit.md#subscribe)
-  * [Decode](4_work_with_events_in_appkit.md#decode)
+* [About events](work_with_events_in_appkit.md#about-events)
+* [Query/subscribe to events](work_with_events_in_appkit.md#querysubscribe-to-events)
+* [Query/Subscribe with SDK](work_with_events_in_appkit.md#querysubscribe-with-sdk)
+* [AppKit syntax](work_with_events_in_appkit.md#appkit-syntax)
+  * [Query](work_with_events_in_appkit.md#query)
+  * [Subscribe](work_with_events_in_appkit.md#subscribe)
+  * [Decode](work_with_events_in_appkit.md#decode)
 
 ## About events
 
@@ -16,7 +16,7 @@ When contract emits an event, you can fetch it from blockchain or you can subscr
 
 Events in blockchain are external outbound messages. In GraphQL API their `msg_type` is 2:
 
-![scr1.jpg](../.gitbook/assets/scr1.jpg)
+![scr1.jpg](../../.gitbook/assets/scr1.jpg)
 
 ## Query/subscribe to events
 
@@ -180,5 +180,5 @@ const decoded = await hello.decodeMessage(msg.boc);
             }
 ```
 
-Check out [core api documentation](https://github.com/tonlabs/TON-SDK/blob/master/guides/work_with_contracts/6_work_with_events.md) for more information.
+Check out [core api documentation](https://tonlabs.gitbook.io/ton-sdk/guides/work_with_contracts/work_with_events) for more information.
 
