@@ -1,55 +1,47 @@
-<p align="center"><a href="https://github.com/tonlabs/appkit-js"><img src="assets/ton-sdk-blue.png" height="60" alt=""/></a></p> 
-<h1 align="center">Free TON JS Application Kit</h1>
-<p align="center">This library is a part of Free TON SDK for JavaScript.</p>
+# Free TON JS Application Kit
 
-AppKit is built over the [@tonclient/core](https://github.com/tonlabs/ton-client-js) package and
-purposed to simplify writing applications on Free TON.
+This library is a part of Free TON SDK for JavaScript.
 
-Full API reference https://tonlabs.github.io/appkit-js/.
+AppKit is built over the [@tonclient/core](https://github.com/tonlabs/ton-client-js) package and purposed to simplify writing applications on Free TON.
+
+Full API reference: [https://tonlabs.github.io/appkit-js/](https://tonlabs.github.io/appkit-js/)
 
 If this package helped you, please give it a star:)
 
 **Have a question? Get quick help in our channel:**
 
-[![Chat on Telegram](https://img.shields.io/badge/chat-on%20telegram-9cf.svg)](https://t.me/ton_sdk)
+[![Chat on Telegram](https://img.shields.io/badge/chat-on%20telegram-9cf.svg)](https://t.me/ton\_sdk)
 
-## Table of Content
+## Table of Contents
 
-- [Table of Content](#table-of-сontent)
-- [Useful links](#useful-links)
-- [Before You Start](#before-you-start)
-- [Installation](#installation)
-- [Setup Client Library](#setup-client-library)
+  - [Useful links](#useful-links)
+  - [Before You Start](#before-you-start)
+  - [Installation](#installation)
+  - [Setup Client Library](#setup-client-library)
     - [NodeJs:](#nodejs)
     - [Web:](#web)
     - [React Native:](#react-native)
-- [Create Client Instance](#create-client-instance)
-- [A Few Words about the Code](#a-few-words-about-the-code)
-- [Use Account Object](#use-account-object)
+  - [Create Client Instance](#create-client-instance)
+  - [A Few Words about the Code](#a-few-words-about-the-code)
+  - [Use Account Object](#use-account-object)
     - [Sample source code](#sample-source-code)
-- [Subscribe for Changes](#subscribe-for-changes)
-- [Executing Contract on TVM](#executing-contract-on-tvm)
-- [Interacting with Core SDK](#interacting-with-core-sdk)
+  - [Subscribe for Changes](#subscribe-for-changes)
+  - [Executing Contract on TVM](#executing-contract-on-tvm)
+  - [Interacting with Core SDK](#interacting-with-core-sdk)
 
 ## Useful links
 
-- [Full API reference](https://tonlabs.github.io/appkit-js/)
-
-- [Appkit samples](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples)
-
-- [SDK guides](https://docs.ton.dev/86757ecb2/p/37f8fc-guides) - to get a deeper understanding dive
-  into our sdk guides where you can find extensive explanations and descriptions of each step of
-  DApp development on Free TON.
+* [Full API reference](https://tonlabs.github.io/appkit-js/)
+* [Appkit samples](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples)
+* [SDK guides](https://tonlabs.gitbook.io/ton-sdk/guides/quick\_start) - to get a deeper understanding dive into our sdk guides where you can find extensive explanations and descriptions of each step of DApp development on Free TON.
 
 ## Before You Start
 
-We strongly recommend installing [TONDEV](https://github.com/tonlabs/tondev) utility before you
-start playing with TON AppKit. This utility will help you manage your tools for Free TON
-development.
+We strongly recommend installing [TONDEV](https://github.com/tonlabs/tondev) utility before you start playing with TON AppKit. This utility will help you manage your tools for Free TON development.
 
 ## Installation
 
-```shell script
+```shell
 # Install core package
 npm i --save @tonclient/core
 
@@ -68,8 +60,7 @@ npm i --save @tonclient/appkit
 
 ## Setup Client Library
 
-You must initialize the core library before the first use. The best place to do it is in the
-initialization code of your application.
+You must initialize the core library before the first use. The best place to do it is in the initialization code of your application.
 
 ### NodeJs:
 
@@ -126,9 +117,7 @@ TonClient.useBinaryLibrary(libReactNative);
 
 ## Create Client Instance
 
-TON AppKit is built
-over [core JS library](https://github.com/tonlabs/ton-client-js/tree/master/packages/core). So you
-have to create an instance of `TonClient` to use it later with TON AppKit objects.
+TON AppKit is built over [core JS library](https://github.com/tonlabs/ton-client-js/tree/master/packages/core). So you have to create an instance of `TonClient` to use it later with TON AppKit objects.
 
 ```javascript
 const client = new TonClient({
@@ -136,21 +125,15 @@ const client = new TonClient({
 });
 ```
 
-In this sample we create a client instance configured to use local
-blockchain [TON OS SE](https://github.com/tonlabs/tonos-se) instance.
+In this sample we create a client instance configured to use local blockchain [TON OS SE](https://github.com/tonlabs/tonos-se) instance.
 
-If you want to work with Developer Network or Free TON network, please use
-the [list of endpoints, listed here](https://docs.ton.dev/86757ecb2/p/85c869-networks). **
-Attention** You must specify all the endpoints as an array in `endpoints` parameter, because each
-endpoint does not guarantee its availability, but we guarantee that at least one endpoint is
-operational at the moment.
+If you want to work with Developer Network or Free TON network, please use the [list of endpoints, listed here](https://tonlabs.gitbook.io/ton-sdk/reference/ton-os-api/networks). **Attention** You must specify all the endpoints as an array in `endpoints` parameter, because each endpoint does not guarantee its availability, but we guarantee that at least one endpoint is operational at the moment.
 
 ## A Few Words about the Code
 
-Below we use a code snippets to illustrate `AppKit` usage.  
-In this code we omit an initialization part because it is the same.  
-We suppose that we are using lib-node bridge (NodeJs) to write examples. Also, we use the library to
-deal with local [TON OS SE](https://github.com/tonlabs/tonos-se) instance.
+Below we use a code snippets to illustrate `AppKit` usage.\
+In this code we omit an initialization part because it is the same.\
+We suppose that we are using lib-node bridge (NodeJs) to write examples. Also, we use the library to deal with local [TON OS SE](https://github.com/tonlabs/tonos-se) instance.
 
 So the full code of each example can look like this:
 
@@ -180,17 +163,11 @@ async function main(client) {
 
 ## Use Account Object
 
-At the moment the key point of `AppKit` is an Account object (class). Application uses an Account
-instance to deal with specific blockchain [account](docs/glossary.md#account) using specific owner (
-signer in terms of TonClient library).
+At the moment the key point of `AppKit` is an Account object (class). Application uses an Account instance to deal with specific blockchain account using specific owner ( signer in terms of TonClient library).
 
-Each Account instance must use an [ABI](docs/glossary.md#abi)
-compliant contract. So we have to define the `Contract` object with an ABI and
-optionally [tvc](docs/glossary.md#tvc) fields. This object must be provided to the Account
-constructor.
+Each Account instance must use an ABI compliant contract. So we have to define the `Contract` object with an ABI and optionally tvc fields. This object must be provided to the Account constructor.
 
-In the example below we use predefined [giver](docs/glossary.md#giver)
-already included in AppKit and predeployed in TONOS SE.
+In the example below we use predefined giver already included in AppKit and predeployed in TONOS SE.
 
 ```javascript
 // Define Contract object.
@@ -238,8 +215,7 @@ In the example above we demonstrated typical basic usage of the Account object.
 
 ### Sample source code
 
-Find the sample that demonstrates AppKit usage source code here
-https://github.com/tonlabs/sdk-samples/tree/master/demo/hello
+Find the sample that demonstrates AppKit usage source code here https://github.com/tonlabs/sdk-samples/tree/master/demo/hello-wallet
 
 ## Subscribe for Changes
 
@@ -247,8 +223,7 @@ Sometimes it is required to listen for events related to an account in realtime.
 
 It is easy: just call one of the `subscribe` methods of an account instance.
 
-For example, if we need to track all changes in the account state on the blockchain we can
-use `subscribeAccount`:
+For example, if we need to track all changes in the account state on the blockchain we can use `subscribeAccount`:
 
 ```ts
 const hello = new Account(Hello, { signer });
@@ -272,17 +247,15 @@ await hello.subscribeMessages("boc", async (msg) => {
 // In addition to other cleanup stuff the `free` method 
 // unsubscribes all active subscriptions for this account instance.
 await hello.free();
-
 ```
 
 ## Executing Contract on TVM
 
 There are some situations where running the contract on the blockchain is not acceptable:
 
-- Writing a tests for developing contract.
-- Emulating execution for an existing account to detect failure reason or to calculate estimated
-  fees.
-- Getting information from an existing account by running its get methods.
+* Writing a tests for developing contract.
+* Emulating execution for an existing account to detect failure reason or to calculate estimated fees.
+* Getting information from an existing account by running its get methods.
 
 In these cases we can play with an account on the TVM included in TON SDK client library:
 
@@ -318,10 +291,9 @@ await acc.free();
 
 There are some situations where running the contract on the blockchain is not acceptable:
 
-- Writing a tests for developing contract.
-- Emulating execution for an existing account to detect failure reason or to calculate estimated
-  fees.
-- Getting information from an existing account by running its get methods.
+* Writing a tests for developing contract.
+* Emulating execution for an existing account to detect failure reason or to calculate estimated fees.
+* Getting information from an existing account by running its get methods.
 
 In these cases we can play with an account on the TVM included in TON SDK client library:
 
@@ -357,13 +329,11 @@ await acc.free();
 
 ## Interacting with Core SDK
 
-AppKit is a convenient library built over the TON-SDK core library. Of course the AppKit doesn't
-cover a lot of tasks the core SDK do.
+AppKit is a convenient library built over the TON-SDK core library. Of course the AppKit doesn't cover a lot of tasks the core SDK do.
 
 So you have to easily interact with low level SDK functions. It is really easy.
 
-Each `Account` instance has a reference to the TON SDK client instance. So you can use this
-reference.
+Each `Account` instance has a reference to the TON SDK client instance. So you can use this reference.
 
 ```ts
 async function test(wallet: Account) {
@@ -384,4 +354,3 @@ async function test(wallet: Account) {
     })).value;
 }
 ```
-
