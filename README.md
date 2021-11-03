@@ -12,22 +12,25 @@ If this package helped you, please give it a star:)
 
 [![Chat on Telegram](https://img.shields.io/badge/chat-on%20telegram-9cf.svg)](https://t.me/ton\_sdk)
 
-### Table of Сontent
+### Table of Сontents
 
-* [Table of Сontent](./#table-of-сontent)
-* [Useful links](./#useful-links)
-* [Before You Start](./#before-you-start)
-* [Installation](./#installation)
-* [Setup Client Library](./#setup-client-library)
-  * [NodeJs:](./#nodejs)
-  * [Web:](./#web)
-  * [React Native:](./#react-native)
-* [Create Client Instance](./#create-client-instance)
-* [A Few Words about the Code](./#a-few-words-about-the-code)
-* [Use Account Object](./#use-account-object)
-  * [Sample source code](./#sample-source-code)
-* [Subscribe for Changes](./#subscribe-for-changes)
-* [Executing Contract on TVM](./#executing-contract-on-tvm)
+    - [Useful links](#useful-links)
+    - [Before You Start](#before-you-start)
+    - [Installation](#installation)
+  - [Install core package](#install-core-package)
+  - [Install lib-node bridge if you write node js application](#install-lib-node-bridge-if-you-write-node-js-application)
+  - [Or install lib-web bridge if you write web/browser application](#or-install-lib-web-bridge-if-you-write-webbrowser-application)
+  - [Or install lib-react-native if you write react-native mobile application](#or-install-lib-react-native-if-you-write-react-native-mobile-application)
+  - [And finally install appkit itself](#and-finally-install-appkit-itself)
+  - [Setup Client Library](#setup-client-library)
+    - [NodeJs:](#nodejs)
+      - [React Native:](#react-native)
+    - [Create Client Instance](#create-client-instance)
+    - [A Few Words about the Code](#a-few-words-about-the-code)
+    - [Use Account Object](#use-account-object)
+      - [Sample source code](#sample-source-code)
+    - [Subscribe for Changes](#subscribe-for-changes)
+    - [Executing Contract on TVM](#executing-contract-on-tvm)
 
 ### Useful links
 
