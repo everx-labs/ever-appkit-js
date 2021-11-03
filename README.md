@@ -14,9 +14,9 @@ If this package helped you, please give it a star:)
 
 ### Table of Сontents
 
-    - [Useful links](#useful-links)
-    - [Before You Start](#before-you-start)
-    - [Installation](#installation)
+- [Useful links](#useful-links)
+- [Before You Start](#before-you-start)
+- [Installation](#installation)
   - [Install core package](#install-core-package)
   - [Install lib-node bridge if you write node js application](#install-lib-node-bridge-if-you-write-node-js-application)
   - [Or install lib-web bridge if you write web/browser application](#or-install-lib-web-bridge-if-you-write-webbrowser-application)
