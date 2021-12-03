@@ -45,6 +45,7 @@ test("Calc Fees", async () => {
     const account = new Account(helloContract(), {
         signer: signerKeys(await client.crypto.generate_random_sign_keys()),
         client,
+        useCachedState: true,
     });
 
     const deployFees = await account.calcDeployFees();
@@ -69,3 +70,19 @@ test("Uninit State", async () => {
     account.refresh();
     expect((await account.getAccount()).acc_type).toEqual(AccountType.uninit);
 });
+
+test("Local run without `useCachedState`", async () => {
+    const client = TonClient.default;
+    const account = new Account(helloContract(), {
+        signer: signerKeys(await client.crypto.generate_random_sign_keys()),
+        client,
+    });
+    await account.deployLocal();
+    try {
+        await account.calcRunFees("touch", {})
+    } catch (err) {
+        expect.err.toMatch(/WaitFor failed/)
+    }
+});
+
+
