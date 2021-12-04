@@ -2,10 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
-## [0.2.1] – 2021-12-03
+## [0.3.0] – 2021-12-03
 
 ### Improved
-- Add `useCachedState` flag. If set to true, appkit aggressively caches account state, that can be useful for running `runLocal` and `runLocal` functions in tests.
+- Add `useCachedState` flag. If set to true, appkit aggressively caches account state, that can be useful for running `deployLocal` and `runLocal` functions in tests (local emulation of contract deployment and execution).
 
 ## [0.2.0] – 2021-04-08
 
