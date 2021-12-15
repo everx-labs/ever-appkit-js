@@ -78,11 +78,10 @@ test("Local run without `useCachedState`", async () => {
         client,
     });
     await account.deployLocal();
-    try {
-        await account.calcRunFees("touch", {})
-    } catch (err) {
-        expect.err.toMatch(/WaitFor failed/)
-    }
+    await expect(account.calcRunFees("touch", {})).rejects.toHaveProperty(
+      'message',
+      expect.stringMatching(/WaitFor failed/)
+    )
 });
 
 
