@@ -1,6 +1,6 @@
 {
 	"name": "@tonclient/appkit",
-	"version": "0.2.0",
+	"version": "0.3.0",
 	"description": "FreeTON SDK: Application Kit",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",

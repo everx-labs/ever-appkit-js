@@ -36,6 +36,11 @@ export type AccountOptions = {
      * If not specified the Account.getDefaultClient() will be used.
      */
     client?: TonClient,
+    /**
+     * If true, appkit aggressively caches account state.
+     * Useful for running `runLocal` and `runLocal` functions in tests.
+     */
+    useCachedState?: boolean;
 }
 
 /**
@@ -245,6 +250,10 @@ export class Account {
      * Initial data used to form the deploy parameter.
      */
     readonly initData: object | null;
+    /**
+     * Allow Appkit to use the cached account state, safe for local tests only.
+     */
+    readonly useCachedState: boolean;
 
     private address: string | null;
     private syncLastTransLt: string | null = null;
@@ -267,6 +276,7 @@ export class Account {
         this.signer = options?.signer ?? signerNone();
         this.address = options?.address ?? null;
         this.initData = options?.initData ?? null;
+        this.useCachedState = options?.useCachedState ?? false;
     }
 
     /**
@@ -490,7 +500,7 @@ export class Account {
      * so fetched boc
      */
     async boc(): Promise<string> {
-        if (this.cachedBoc) {
+        if (this.cachedBoc && this.useCachedState) {
             return this.cachedBoc;
         }
         const address = await this.getAddress();
@@ -540,7 +550,7 @@ export class Account {
                     boc: await this.boc(),
                 })
             ).parsed;
-        } catch (error) {
+        } catch (error: any) {
             if (error.code !== 603) {
                 throw error;
             }
