@@ -1,5 +1,7 @@
 # Configure Custom Giver
 
+[Full Sample Code](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples/custom-giver)
+
 By default `Account.getDefaultGiver()` is [TON OS SE giver](https://github.com/tonlabs/tonos-se/tree/master/contracts). It is integrated into Account module. We will use it. But you can always re-define it with method `Account.giver(newGiver: AccountGiver)` with the following signature:
 
 ```javascript
@@ -9,7 +11,7 @@ By default `Account.getDefaultGiver()` is [TON OS SE giver](https://github.com/t
 export type AccountGiver = (address: string, value: number) => Promise<void>;
 ```
 
-This guide will help you to implement and configure your custom giver. In the example implementation we will use TON OS SE giver with its address, keys and ABI, but you can simply substitute them with your own.
+This guide will help you to implement and configure your custom giver. In the example implementation we will use the same TON OS SE giver with its address, keys and ABI, but you can simply substitute them with your own.
 
 First of all, let's declare our Giver's address, keys and ABI:
 
@@ -203,3 +205,5 @@ assert(
 
 console.log("Funds transferred.");
 ```
+
+[Full Sample Code](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples/custom-giver)
