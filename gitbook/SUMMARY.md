@@ -14,6 +14,7 @@
 
 * [AppKit Guides](guides/appkit\_guides.md)
 * [Configure AppKit](guides/configure\_appkit.md)
+* [Configure Custom Giver](guides/custom\_giver.md)
 * [Deploy](guides/deploy.md)
 * [Run On-chain](guides/run\_onchain.md)
 * [Run ABI Get Method](guides/run\_abi\_get\_method.md)
