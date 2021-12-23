@@ -183,7 +183,7 @@ const transaction_tree = await client.net.query_transaction_tree({
 
 // Do some checks in order to assure, that funds are received:
 
-assert.equal(transaction_tree.messages.length, 2, "There are must be 2 messages");
+assert.equal(transaction_tree.messages.length, 2, "There must be 2 messages");
 assert(!transaction_tree.messages[1].bounce, "Expected 2nd message to be not-bounceable");
 assert.equal(
     transaction_tree.messages[1].value,
@@ -192,7 +192,7 @@ assert.equal(
 );
 assert.equal(transaction_tree.messages[1].dst, address2, "2nd message's destination must be " + address2);
 
-assert.equal(transaction_tree.transactions.length, 2, "There are must be 2 transactions");
+assert.equal(transaction_tree.transactions.length, 2, "There must be 2 transactions");
 assert.equal(
     transaction_tree.transactions[1].account_addr,
     address2,
