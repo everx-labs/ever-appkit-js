@@ -1,8 +1,8 @@
-# Implementing Custom Giver
+# Configure Custom Giver
 
 By default `Account.getDefaultGiver()` is [TON OS SE giver](https://github.com/tonlabs/tonos-se/tree/master/contracts). It is integrated into Account module. We will use it. But you can always re-define it with method `Account.giver(newGiver: AccountGiver)` with the following signature:
 
-```
+```javascript
 /**
  * Object that can be used to send some value to an address 
  */
