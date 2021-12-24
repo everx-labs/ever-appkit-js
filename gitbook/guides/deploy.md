@@ -130,6 +130,8 @@ By default `Account.getDefaultGiver()` is [TON OS SE giver](https://github.com/t
 export type AccountGiver = (address: string, value: number) => Promise<void>;
 ```
 
+More details about implementing your custom giver with sample code [here](./custom_giver.md).
+
 ## Deploy
 
 Because our contract has a constructor function as init function without parameters, we can omit the other 2 deploy parameters:
