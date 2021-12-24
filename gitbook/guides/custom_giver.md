@@ -116,7 +116,7 @@ const giverSendTo = async (address, value) => {
 // In order to implement giver's logics, we must implement `AccountGiver` interface
 const giver = {
     address: giverAddress,
-    sendTo: async (address, value) => await giverSendTo(address, value),
+    sendTo: async (address, value) => giverSendTo(address, value),
 };
 ```
 
@@ -139,7 +139,7 @@ In this example we will deploy test `HelloWallet` contract.
 
 ```javascript
 // Generate an ed25519 key pair for new account
-const helloAccKeys = await TonClient.default.crypto.generate_random_sign_keys();
+const helloAccKeys = await client.crypto.generate_random_sign_keys();
 
 // Create test contract
 const helloAcc = new Account(HelloWallet, {
@@ -161,7 +161,7 @@ In this example we will send 10 tokens from our Giver to a random address and ch
 
 ```javascript
 // Generate new random keypair:
-const helloAcc2Keys = await TonClient.default.crypto.generate_random_sign_keys();
+const helloAcc2Keys = await client.crypto.generate_random_sign_keys();
 
 // Create account object without client's connection. We don't need to deploy it, we just want to obtain it's future address:
 const helloAcc2 = new Account(HelloWallet, {
