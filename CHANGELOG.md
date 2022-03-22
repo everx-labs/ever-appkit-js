@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.1] – 2022-03-22
+
+### New
+- Rebranding to ever-appkit-js (@eversdk/appkit)
+
 ## [0.3.0] – 2021-12-03
 
 ### Improved
