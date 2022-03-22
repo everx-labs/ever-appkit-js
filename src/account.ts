@@ -14,7 +14,7 @@ import {
     ResultOfSubscribeCollection,
     TransactionFees,
     accountForExecutorUninit,
-} from "@tonclient/core";
+} from "@eversdk/core";
 
 /**
  * Options for an account instance

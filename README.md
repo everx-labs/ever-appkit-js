@@ -2,7 +2,7 @@
 
 This library is a part of Free TON SDK for JavaScript.
 
-AppKit is built over the [@tonclient/core](https://github.com/tonlabs/ton-client-js) package and purposed to simplify writing applications on Free TON.
+AppKit is built over the [@eversdk/core](https://github.com/tonlabs/ton-client-js) package and purposed to simplify writing applications on Free TON.
 
 Full API reference: [https://tonlabs.github.io/appkit-js/](https://tonlabs.github.io/appkit-js/)
 
@@ -43,19 +43,19 @@ We strongly recommend installing [TONDEV](https://github.com/tonlabs/tondev) uti
 
 ```shell
 # Install core package
-npm i --save @tonclient/core
+npm i --save @eversdk/core
 
 # Install lib-node bridge if you write node js application
-npm i --save @tonclient/lib-node
+npm i --save @eversdk/lib-node
 
 # Or install lib-web bridge if you write web/browser application
-npm i --save @tonclient/lib-web
+npm i --save @eversdk/lib-web
 
 # Or install lib-react-native if you write react-native mobile application
-npm i --save @tonclient/lib-react-native
+npm i --save @eversdk/lib-react-native
 
 # And finally install appkit itself
-npm i --save @tonclient/appkit
+npm i --save @eversdk/appkit
 ```
 
 ## Setup Client Library
@@ -65,8 +65,8 @@ You must initialize the core library before the first use. The best place to do 
 ### NodeJs:
 
 ```javascript
-const { TonClient } = require("@tonclient/core");
-const { libNode } = require("@tonclient/lib-node");
+const { TonClient } = require("@eversdk/core");
+const { libNode } = require("@eversdk/lib-node");
 
 // Application initialization
 
@@ -76,8 +76,8 @@ TonClient.useBinaryLibrary(libNode)
 ### Web:
 
 ```javascript
-import { TonClient } from "@tonclient/core";
-import { libWeb } from "@tonclient/lib-web";
+import { TonClient } from "@eversdk/core";
+import { libWeb } from "@eversdk/lib-web";
 
 // Application initialization
 
@@ -89,8 +89,8 @@ By default, the library loads wasm module from relative URL `/tonclient.wasm`.
 You can specify alternative URL if you want to place (or rename) wasm module.
 
 ```javascript
-import { TonClient } from "@tonclient/core";
-import { libWeb, libWebSetup } from "@tonclient/lib-web";
+import { TonClient } from "@eversdk/core";
+import { libWeb, libWebSetup } from "@eversdk/lib-web";
 
 // Application initialization.
 
@@ -107,8 +107,8 @@ TonClient.useBinaryLibrary(libWeb);
 ### React Native:
 
 ```javascript
-import { TonClient } from "@tonclient/core";
-import { libReactNative } from "@tonclient/lib-react-native";
+import { TonClient } from "@eversdk/core";
+import { libReactNative } from "@eversdk/lib-react-native";
 
 // Application initialization
 
@@ -138,9 +138,9 @@ We suppose that we are using lib-node bridge (NodeJs) to write examples. Also, w
 So the full code of each example can look like this:
 
 ```javascript
-const { TonClient } = require("@tonclient/core");
-const { libNode } = require("@tonclient/lib-node");
-const { Account } = require("@tonclient/appkit");
+const { TonClient } = require("@eversdk/core");
+const { libNode } = require("@eversdk/lib-node");
+const { Account } = require("@eversdk/appkit");
 
 TonClient.useBinaryLibrary(libNode);
 

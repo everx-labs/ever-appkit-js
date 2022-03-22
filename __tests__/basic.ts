@@ -1,7 +1,7 @@
 import {
     signerKeys,
     TonClient,
-} from "@tonclient/core";
+} from "@eversdk/core";
 import {
     loadContract,
     init,

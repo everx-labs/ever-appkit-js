@@ -1,334 +1,163 @@
-<!doctype html>
-<html class="default no-js">
-<head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>@tonclient/appkit</title>
-	<meta name="description" content="Documentation for @tonclient/appkit">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="assets/css/main.css">
-	<script async src="assets/js/search.js" id="search-script"></script>
-</head>
-<body>
-<header>
-	<div class="tsd-page-toolbar">
-		<div class="container">
-			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="assets/js/search.json" data-base=".">
-					<div class="field">
-						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
-						<input id="tsd-search-field" type="text" />
-					</div>
-					<ul class="results">
-						<li class="state loading">Preparing search index...</li>
-						<li class="state failure">The search index is not available</li>
-					</ul>
-					<a href="index.html" class="title">@tonclient/appkit</a>
-				</div>
-				<div class="table-cell" id="tsd-widgets">
-					<div id="tsd-filter">
-						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
-						<div class="tsd-filter-group">
-							<div class="tsd-select" id="tsd-filter-visibility">
-								<span class="tsd-select-label">All</span>
-								<ul class="tsd-select-list">
-									<li data-value="public">Public</li>
-									<li data-value="protected">Public/Protected</li>
-									<li data-value="private" class="selected">All</li>
-								</ul>
-							</div>
-							<input type="checkbox" id="tsd-filter-inherited" checked />
-							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-externals" checked />
-							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
-						</div>
-					</div>
-					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="tsd-page-title">
-		<div class="container">
-			<h1>@tonclient/appkit</h1>
-		</div>
-	</div>
-</header>
-<div class="container container-main">
-	<div class="row">
-		<div class="col-8 col-content">
-			<div class="tsd-panel tsd-typography">
-				<a href="#freeton-application-kit" id="freeton-application-kit" style="color: inherit; text-decoration: none;">
-					<h1>FreeTON Application Kit</h1>
-				</a>
-				<p>This library is a part of Free TON SDK for JavaScript.</p>
-				<p>AppKit is built over the <code>@tonclient/core</code> package and purposed to simplify writing applications
-				using Free TON core library.</p>
-				<p><strong>Have a question? Get quick help in our channel:</strong></p>
-				<p><a href="https://t.me/ton_sdk"><img src="https://img.shields.io/badge/chat-on%20telegram-9cf.svg" alt="Chat on Telegram"></a></p>
-				<p>To get a deeper understanding dive into
-					our <a href="https://docs.ton.dev/86757ecb2/p/37f8fc-guides">SDK guides</a> where you can find extensive
-				explanations and descriptions of each step of DApp development on Free TON.</p>
-				<a href="#before-you-start" id="before-you-start" style="color: inherit; text-decoration: none;">
-					<h2>Before You Start</h2>
-				</a>
-				<p>We strongly recommend to install <a href="https://github.com/tonlabs/tondev">TONDEV</a> utility before you start playing with TON AppKit. This is
-				an ultimate set of tools for Free TON development.</p>
-				<p>Also we recommend the <a href="https://github.com/tonlabs/tondev-vscode">TONDEV</a> extension for Visual Studio Code users.</p>
-				<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
-					<h2>Installation</h2>
-				</a>
-				<pre><code class="language-shell"><span style="color: #008000"># Install core package</span>
-<span style="color: #000000">npm i --save @tonclient/core</span>
+<!DOCTYPE html><html class="default"><head><meta charSet="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>@eversdk/appkit</title><meta name="description" content="Documentation for @eversdk/appkit"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="assets/style.css"/><link rel="stylesheet" href="assets/highlight.css"/><script async src="assets/search.js" id="search-script"></script></head><body><script>document.body.classList.add(localStorage.getItem("tsd-theme") || "os")</script><header><div class="tsd-page-toolbar"><div class="container"><div class="table-wrap"><div class="table-cell" id="tsd-search" data-base="."><div class="field"><label for="tsd-search-field" class="tsd-widget search no-caption">Search</label><input type="text" id="tsd-search-field"/></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="index.html" class="title">@eversdk/appkit</a></div><div class="table-cell" id="tsd-widgets"><div id="tsd-filter"><a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a><div class="tsd-filter-group"><div class="tsd-select" id="tsd-filter-visibility"><span class="tsd-select-label">All</span><ul class="tsd-select-list"><li data-value="public">Public</li><li data-value="protected">Public/Protected</li><li data-value="private" class="selected">All</li></ul></div> <input type="checkbox" id="tsd-filter-inherited" checked/><label class="tsd-widget" for="tsd-filter-inherited">Inherited</label><input type="checkbox" id="tsd-filter-externals" checked/><label class="tsd-widget" for="tsd-filter-externals">Externals</label></div></div><a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a></div></div></div></div><div class="tsd-page-title"><div class="container"><h1>@eversdk/appkit</h1></div></div></header><div class="container container-main"><div class="row"><div class="col-8 col-content"><div class="tsd-panel tsd-typography">
+<a href="#free-ton-js-application-kit" id="free-ton-js-application-kit" style="color: inherit; text-decoration: none;">
+  <h1>Free TON JS Application Kit</h1>
+</a>
+<p>This library is a part of Free TON SDK for JavaScript.</p>
+<p>AppKit is built over the <a href="https://github.com/tonlabs/ton-client-js">@eversdk/core</a> package and purposed to simplify writing applications on Free TON.</p>
+<p>Full API reference: <a href="https://tonlabs.github.io/appkit-js/">https://tonlabs.github.io/appkit-js/</a></p>
+<p>If this package helped you, please give it a star:)</p>
+<p><strong>Have a question? Get quick help in our channel:</strong></p>
+<p><a href="https://t.me/ton_sdk"><img src="https://img.shields.io/badge/chat-on%20telegram-9cf.svg" alt="Chat on Telegram"></a></p>
 
-<span style="color: #008000"># Install lib-node bridge if you write node js application</span>
-<span style="color: #000000">npm i --save @tonclient/lib-node</span>
+<a href="#table-of-contents" id="table-of-contents" style="color: inherit; text-decoration: none;">
+  <h2>Table of Contents</h2>
+</a>
+<ul>
+<li><a href="#useful-links">Useful links</a></li>
+<li><a href="#before-you-start">Before You Start</a></li>
+<li><a href="#installation">Installation</a></li>
+<li><a href="#setup-client-library">Setup Client Library</a><ul>
+<li><a href="#nodejs">NodeJs:</a></li>
+<li><a href="#web">Web:</a></li>
+<li><a href="#react-native">React Native:</a></li>
+</ul>
+</li>
+<li><a href="#create-client-instance">Create Client Instance</a></li>
+<li><a href="#a-few-words-about-the-code">A Few Words about the Code</a></li>
+<li><a href="#use-account-object">Use Account Object</a><ul>
+<li><a href="#sample-source-code">Sample source code</a></li>
+</ul>
+</li>
+<li><a href="#subscribe-for-changes">Subscribe for Changes</a></li>
+<li><a href="#executing-contract-on-tvm">Executing Contract on TVM</a></li>
+<li><a href="#interacting-with-core-sdk">Interacting with Core SDK</a></li>
+</ul>
 
-<span style="color: #008000"># Or install lib-web bridge if you write web/browser application</span>
-<span style="color: #000000">npm i --save @tonclient/lib-web</span>
+<a href="#useful-links" id="useful-links" style="color: inherit; text-decoration: none;">
+  <h2>Useful links</h2>
+</a>
+<ul>
+<li><a href="https://tonlabs.github.io/appkit-js/">Full API reference</a></li>
+<li><a href="https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples">Appkit samples</a></li>
+<li><a href="https://tonlabs.gitbook.io/ton-sdk/guides/quick_start">SDK guides</a> - to get a deeper understanding dive into our sdk guides where you can find extensive explanations and descriptions of each step of DApp development on Free TON.</li>
+</ul>
 
-<span style="color: #008000"># Or install lib-react-native if you write react-native mobile application</span>
-<span style="color: #000000">npm i --save @tonclient/lib-react-native</span>
+<a href="#before-you-start" id="before-you-start" style="color: inherit; text-decoration: none;">
+  <h2>Before You Start</h2>
+</a>
+<p>We strongly recommend installing <a href="https://github.com/tonlabs/tondev">TONDEV</a> utility before you start playing with TON AppKit. This utility will help you manage your tools for Free TON development.</p>
 
-<span style="color: #008000"># And finally install appkit itself</span>
-<span style="color: #000000">npm i --save @tonclient/appkit</span>
+<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+  <h2>Installation</h2>
+</a>
+<pre><code class="language-shell"><span class="hl-0"># Install core package</span><br/><span class="hl-1">npm i --save @eversdk/core</span><br/><br/><span class="hl-0"># Install lib-node bridge if you write node js application</span><br/><span class="hl-1">npm i --save @eversdk/lib-node</span><br/><br/><span class="hl-0"># Or install lib-web bridge if you write web/browser application</span><br/><span class="hl-1">npm i --save @eversdk/lib-web</span><br/><br/><span class="hl-0"># Or install lib-react-native if you write react-native mobile application</span><br/><span class="hl-1">npm i --save @eversdk/lib-react-native</span><br/><br/><span class="hl-0"># And finally install appkit itself</span><br/><span class="hl-1">npm i --save @eversdk/appkit</span>
 </code></pre>
-				<a href="#setup-client-library" id="setup-client-library" style="color: inherit; text-decoration: none;">
-					<h2>Setup Client Library</h2>
-				</a>
-				<p>You must initialize the core library before the first use. The best place to do it is an
-				initialization code of your application.</p>
-				<a href="#nodejs" id="nodejs" style="color: inherit; text-decoration: none;">
-					<h3>NodeJs:</h3>
-				</a>
-				<pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">TonClient</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;@tonclient/core&quot;</span><span style="color: #000000">);</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">libNode</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;@tonclient/lib-node&quot;</span><span style="color: #000000">);</span>
 
-<span style="color: #008000">// Application initialization</span>
+<a href="#setup-client-library" id="setup-client-library" style="color: inherit; text-decoration: none;">
+  <h2>Setup Client Library</h2>
+</a>
+<p>You must initialize the core library before the first use. The best place to do it is in the initialization code of your application.</p>
 
-<span style="color: #001080">TonClient</span><span style="color: #000000">.</span><span style="color: #795E26">useBinaryLibrary</span><span style="color: #000000">(</span><span style="color: #001080">libNode</span><span style="color: #000000">)</span>
+<a href="#nodejs" id="nodejs" style="color: inherit; text-decoration: none;">
+  <h3>NodeJs:</h3>
+</a>
+<pre><code class="language-javascript"><span class="hl-2">const</span><span class="hl-1"> { </span><span class="hl-3">TonClient</span><span class="hl-1"> } = </span><span class="hl-4">require</span><span class="hl-1">(</span><span class="hl-5">&quot;@eversdk/core&quot;</span><span class="hl-1">);</span><br/><span class="hl-2">const</span><span class="hl-1"> { </span><span class="hl-3">libNode</span><span class="hl-1"> } = </span><span class="hl-4">require</span><span class="hl-1">(</span><span class="hl-5">&quot;@eversdk/lib-node&quot;</span><span class="hl-1">);</span><br/><br/><span class="hl-0">// Application initialization</span><br/><br/><span class="hl-6">TonClient</span><span class="hl-1">.</span><span class="hl-4">useBinaryLibrary</span><span class="hl-1">(</span><span class="hl-6">libNode</span><span class="hl-1">)</span>
 </code></pre>
-				<a href="#web" id="web" style="color: inherit; text-decoration: none;">
-					<h3>Web:</h3>
-				</a>
-				<pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">TonClient</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@tonclient/core&quot;</span><span style="color: #000000">;</span>
-<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">libWeb</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@tonclient/lib-web&quot;</span><span style="color: #000000">;</span>
 
-<span style="color: #008000">// Application initialization</span>
-
-<span style="color: #001080">TonClient</span><span style="color: #000000">.</span><span style="color: #795E26">useBinaryLibrary</span><span style="color: #000000">(</span><span style="color: #001080">libWeb</span><span style="color: #000000">);</span>
+<a href="#web" id="web" style="color: inherit; text-decoration: none;">
+  <h3>Web:</h3>
+</a>
+<pre><code class="language-javascript"><span class="hl-7">import</span><span class="hl-1"> { </span><span class="hl-6">TonClient</span><span class="hl-1"> } </span><span class="hl-7">from</span><span class="hl-1"> </span><span class="hl-5">&quot;@eversdk/core&quot;</span><span class="hl-1">;</span><br/><span class="hl-7">import</span><span class="hl-1"> { </span><span class="hl-6">libWeb</span><span class="hl-1"> } </span><span class="hl-7">from</span><span class="hl-1"> </span><span class="hl-5">&quot;@eversdk/lib-web&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-0">// Application initialization</span><br/><br/><span class="hl-6">TonClient</span><span class="hl-1">.</span><span class="hl-4">useBinaryLibrary</span><span class="hl-1">(</span><span class="hl-6">libWeb</span><span class="hl-1">);</span>
 </code></pre>
-				<p>By default the library loads wasm module from relative URL <code>/tonclient.wasm</code>.</p>
-				<p>You can specify alternative URL if you want to place (or rename) wasm module.</p>
-				<pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">TonClient</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@tonclient/core&quot;</span><span style="color: #000000">;</span>
-<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">libWeb</span><span style="color: #000000">, </span><span style="color: #001080">libWebSetup</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@tonclient/lib-web&quot;</span><span style="color: #000000">;</span>
-
-<span style="color: #008000">// Application initialization.</span>
-
-<span style="color: #008000">// You have to setup libWeb if the `tonclient.wasm`</span>
-<span style="color: #008000">// isn&#039;t located at root of your web site.</span>
-<span style="color: #008000">// Otherwise you havn&#039;t to call `libWebSetup`.</span>
-<span style="color: #795E26">libWebSetup</span><span style="color: #000000">({</span>
-<span style="color: #000000">    </span><span style="color: #001080">binaryURL:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;/assets/tonclient_1_2_3.wasm&quot;</span><span style="color: #000000">,</span>
-<span style="color: #000000">});</span>
-
-<span style="color: #001080">TonClient</span><span style="color: #000000">.</span><span style="color: #795E26">useBinaryLibrary</span><span style="color: #000000">(</span><span style="color: #001080">libWeb</span><span style="color: #000000">);</span>
+<p>By default, the library loads wasm module from relative URL <code>/tonclient.wasm</code>.</p>
+<p>You can specify alternative URL if you want to place (or rename) wasm module.</p>
+<pre><code class="language-javascript"><span class="hl-7">import</span><span class="hl-1"> { </span><span class="hl-6">TonClient</span><span class="hl-1"> } </span><span class="hl-7">from</span><span class="hl-1"> </span><span class="hl-5">&quot;@eversdk/core&quot;</span><span class="hl-1">;</span><br/><span class="hl-7">import</span><span class="hl-1"> { </span><span class="hl-6">libWeb</span><span class="hl-1">, </span><span class="hl-6">libWebSetup</span><span class="hl-1"> } </span><span class="hl-7">from</span><span class="hl-1"> </span><span class="hl-5">&quot;@eversdk/lib-web&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-0">// Application initialization.</span><br/><br/><span class="hl-0">// You have to setup libWeb if the `tonclient.wasm`</span><br/><span class="hl-0">// isn&#39;t located at root of your web site.</span><br/><span class="hl-0">// Otherwise you havn&#39;t to call `libWebSetup`.</span><br/><span class="hl-4">libWebSetup</span><span class="hl-1">({</span><br/><span class="hl-1">    </span><span class="hl-6">binaryURL:</span><span class="hl-1"> </span><span class="hl-5">&quot;/assets/tonclient_1_2_3.wasm&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">});</span><br/><br/><span class="hl-6">TonClient</span><span class="hl-1">.</span><span class="hl-4">useBinaryLibrary</span><span class="hl-1">(</span><span class="hl-6">libWeb</span><span class="hl-1">);</span>
 </code></pre>
-				<a href="#react-native" id="react-native" style="color: inherit; text-decoration: none;">
-					<h3>React Native:</h3>
-				</a>
-				<pre><code class="language-javascript"><span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">TonClient</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@tonclient/core&quot;</span><span style="color: #000000">;</span>
-<span style="color: #AF00DB">import</span><span style="color: #000000"> { </span><span style="color: #001080">libReactNative</span><span style="color: #000000"> } </span><span style="color: #AF00DB">from</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;@tonclient/lib-react-native&quot;</span><span style="color: #000000">;</span>
 
-<span style="color: #008000">// Application initialization</span>
-
-<span style="color: #001080">TonClient</span><span style="color: #000000">.</span><span style="color: #795E26">useBinaryLibrary</span><span style="color: #000000">(</span><span style="color: #001080">libReactNative</span><span style="color: #000000">);</span>
+<a href="#react-native" id="react-native" style="color: inherit; text-decoration: none;">
+  <h3>React Native:</h3>
+</a>
+<pre><code class="language-javascript"><span class="hl-7">import</span><span class="hl-1"> { </span><span class="hl-6">TonClient</span><span class="hl-1"> } </span><span class="hl-7">from</span><span class="hl-1"> </span><span class="hl-5">&quot;@eversdk/core&quot;</span><span class="hl-1">;</span><br/><span class="hl-7">import</span><span class="hl-1"> { </span><span class="hl-6">libReactNative</span><span class="hl-1"> } </span><span class="hl-7">from</span><span class="hl-1"> </span><span class="hl-5">&quot;@eversdk/lib-react-native&quot;</span><span class="hl-1">;</span><br/><br/><span class="hl-0">// Application initialization</span><br/><br/><span class="hl-6">TonClient</span><span class="hl-1">.</span><span class="hl-4">useBinaryLibrary</span><span class="hl-1">(</span><span class="hl-6">libReactNative</span><span class="hl-1">);</span>
 </code></pre>
-				<a href="#create-client-instance" id="create-client-instance" style="color: inherit; text-decoration: none;">
-					<h2>Create Client Instance</h2>
-				</a>
-				<p>TON AppKit is built over <a href="https://github.com/tonlabs/ton-client-js/tree/master/packages/core">core JS library</a>. So you have to create an instance of <code>TonClient</code> to use it later with TON AppKit objects.</p>
-				<pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">TonClient</span><span style="color: #000000">({</span>
-<span style="color: #000000">    </span><span style="color: #001080">network:</span><span style="color: #000000"> { </span><span style="color: #001080">endpoints:</span><span style="color: #000000"> [</span><span style="color: #A31515">&quot;http://localhost&quot;</span><span style="color: #000000">] }</span>
-<span style="color: #000000">});</span>
+
+<a href="#create-client-instance" id="create-client-instance" style="color: inherit; text-decoration: none;">
+  <h2>Create Client Instance</h2>
+</a>
+<p>TON AppKit is built over <a href="https://github.com/tonlabs/ton-client-js/tree/master/packages/core">core JS library</a>. So you have to create an instance of <code>TonClient</code> to use it later with TON AppKit objects.</p>
+<pre><code class="language-javascript"><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">client</span><span class="hl-1"> = </span><span class="hl-2">new</span><span class="hl-1"> </span><span class="hl-4">TonClient</span><span class="hl-1">({</span><br/><span class="hl-1">    </span><span class="hl-6">network:</span><span class="hl-1"> { </span><span class="hl-6">endpoints:</span><span class="hl-1"> [</span><span class="hl-5">&quot;http://localhost&quot;</span><span class="hl-1">] }</span><br/><span class="hl-1">});</span>
 </code></pre>
-				<p>In this sample we create a client instance configured to use local blockchain <a href="https://github.com/tonlabs/tonos-se">TON OS SE</a> instance.</p>
-				<a href="#a-few-words-about-the-code" id="a-few-words-about-the-code" style="color: inherit; text-decoration: none;">
-					<h2>A Few Words about the Code</h2>
-				</a>
-				<p>Below we use a code snippets to illustrate an AppKit usage.</p>
-				<p>In this code we omit an initialization part because it is the same.</p>
-				<p>We suppose that we are using lib-node bridge (NodeJs) to write examples.</p>
-				<p>Also we use the library to deal with local TON OS SE instance.</p>
-				<p>So full code of each example can look like this:</p>
-				<pre><code class="language-javascript"><span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">TonClient</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;@tonclient/core&quot;</span><span style="color: #000000">);</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">libNode</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;@tonclient/lib-node&quot;</span><span style="color: #000000">);</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> { </span><span style="color: #0070C1">Account</span><span style="color: #000000"> } = </span><span style="color: #795E26">require</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;@tonclient/appkit&quot;</span><span style="color: #000000">);</span>
+<p>In this sample we create a client instance configured to use local blockchain <a href="https://github.com/tonlabs/tonos-se">TON OS SE</a> instance.</p>
+<p>If you want to work with Developer Network or Free TON network, please use the <a href="https://tonlabs.gitbook.io/ton-sdk/reference/ton-os-api/networks">list of endpoints, listed here</a>. <strong>Attention</strong> You must specify all the endpoints as an array in <code>endpoints</code> parameter, because each endpoint does not guarantee its availability, but we guarantee that at least one endpoint is operational at the moment.</p>
 
-<span style="color: #001080">TonClient</span><span style="color: #000000">.</span><span style="color: #795E26">useBinaryLibrary</span><span style="color: #000000">(</span><span style="color: #001080">libNode</span><span style="color: #000000">);</span>
-
-<span style="color: #000000">(</span><span style="color: #0000FF">async</span><span style="color: #000000"> () </span><span style="color: #0000FF">=&gt;</span><span style="color: #000000"> {</span>
-<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">endpoint</span><span style="color: #000000"> = </span><span style="color: #001080">process</span><span style="color: #000000">.</span><span style="color: #001080">env</span><span style="color: #000000">.</span><span style="color: #0070C1">TON_NETWORK_ADDRESS</span><span style="color: #000000"> || </span><span style="color: #A31515">&quot;http://localhost&quot;</span><span style="color: #000000">; </span>
-<span style="color: #000000">    </span><span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">client</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">TonClient</span><span style="color: #000000">({ </span><span style="color: #001080">network:</span><span style="color: #000000"> { </span><span style="color: #001080">endpoints:</span><span style="color: #000000"> [</span><span style="color: #001080">endpoint</span><span style="color: #000000">] } });</span>
-<span style="color: #000000">    </span><span style="color: #AF00DB">try</span><span style="color: #000000"> {</span>
-<span style="color: #000000">        </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #795E26">main</span><span style="color: #000000">(</span><span style="color: #001080">client</span><span style="color: #000000">);</span>
-<span style="color: #000000">    } </span><span style="color: #AF00DB">catch</span><span style="color: #000000"> (</span><span style="color: #001080">err</span><span style="color: #000000">) {</span>
-<span style="color: #000000">        </span><span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">error</span><span style="color: #000000">(</span><span style="color: #001080">err</span><span style="color: #000000">);</span>
-<span style="color: #000000">    } </span><span style="color: #AF00DB">finally</span><span style="color: #000000"> {</span>
-<span style="color: #000000">        </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #795E26">close</span><span style="color: #000000">();</span>
-<span style="color: #000000">    }</span>
-<span style="color: #000000">})();</span>
-
-<span style="color: #0000FF">async</span><span style="color: #000000"> </span><span style="color: #0000FF">function</span><span style="color: #000000"> </span><span style="color: #795E26">main</span><span style="color: #000000">(</span><span style="color: #001080">client</span><span style="color: #000000">) {</span>
-<span style="color: #000000">    </span><span style="color: #008000">// Snippet code is here</span>
-<span style="color: #000000">}</span>
+<a href="#a-few-words-about-the-code" id="a-few-words-about-the-code" style="color: inherit; text-decoration: none;">
+  <h2>A Few Words about the Code</h2>
+</a>
+<p>Below we use a code snippets to illustrate <code>AppKit</code> usage.<br>In this code we omit an initialization part because it is the same.<br>We suppose that we are using lib-node bridge (NodeJs) to write examples. Also, we use the library to deal with local <a href="https://github.com/tonlabs/tonos-se">TON OS SE</a> instance.</p>
+<p>So the full code of each example can look like this:</p>
+<pre><code class="language-javascript"><span class="hl-2">const</span><span class="hl-1"> { </span><span class="hl-3">TonClient</span><span class="hl-1"> } = </span><span class="hl-4">require</span><span class="hl-1">(</span><span class="hl-5">&quot;@eversdk/core&quot;</span><span class="hl-1">);</span><br/><span class="hl-2">const</span><span class="hl-1"> { </span><span class="hl-3">libNode</span><span class="hl-1"> } = </span><span class="hl-4">require</span><span class="hl-1">(</span><span class="hl-5">&quot;@eversdk/lib-node&quot;</span><span class="hl-1">);</span><br/><span class="hl-2">const</span><span class="hl-1"> { </span><span class="hl-3">Account</span><span class="hl-1"> } = </span><span class="hl-4">require</span><span class="hl-1">(</span><span class="hl-5">&quot;@eversdk/appkit&quot;</span><span class="hl-1">);</span><br/><br/><span class="hl-6">TonClient</span><span class="hl-1">.</span><span class="hl-4">useBinaryLibrary</span><span class="hl-1">(</span><span class="hl-6">libNode</span><span class="hl-1">);</span><br/><br/><span class="hl-1">(</span><span class="hl-2">async</span><span class="hl-1"> () </span><span class="hl-2">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">endpoint</span><span class="hl-1"> = </span><span class="hl-6">process</span><span class="hl-1">.</span><span class="hl-6">env</span><span class="hl-1">.</span><span class="hl-3">TON_NETWORK_ADDRESS</span><span class="hl-1"> || </span><span class="hl-5">&quot;http://localhost&quot;</span><span class="hl-1">;</span><br/><span class="hl-1">    </span><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">client</span><span class="hl-1"> = </span><span class="hl-2">new</span><span class="hl-1"> </span><span class="hl-4">TonClient</span><span class="hl-1">({ </span><span class="hl-6">network:</span><span class="hl-1"> { </span><span class="hl-6">endpoints:</span><span class="hl-1"> [</span><span class="hl-6">endpoint</span><span class="hl-1">] } });</span><br/><span class="hl-1">    </span><span class="hl-7">try</span><span class="hl-1"> {</span><br/><span class="hl-1">        </span><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-4">main</span><span class="hl-1">(</span><span class="hl-6">client</span><span class="hl-1">);</span><br/><span class="hl-1">    } </span><span class="hl-7">catch</span><span class="hl-1"> (</span><span class="hl-6">err</span><span class="hl-1">) {</span><br/><span class="hl-1">        </span><span class="hl-6">console</span><span class="hl-1">.</span><span class="hl-4">error</span><span class="hl-1">(</span><span class="hl-6">err</span><span class="hl-1">);</span><br/><span class="hl-1">    } </span><span class="hl-7">finally</span><span class="hl-1"> {</span><br/><span class="hl-1">        </span><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-4">close</span><span class="hl-1">();</span><br/><span class="hl-1">    }</span><br/><span class="hl-1">})();</span><br/><br/><span class="hl-2">async</span><span class="hl-1"> </span><span class="hl-2">function</span><span class="hl-1"> </span><span class="hl-4">main</span><span class="hl-1">(</span><span class="hl-6">client</span><span class="hl-1">) {</span><br/><span class="hl-1">    </span><span class="hl-0">// Snippet code is here</span><br/><span class="hl-1">}</span>
 </code></pre>
-				<a href="#use-account-object" id="use-account-object" style="color: inherit; text-decoration: none;">
-					<h2>Use Account Object</h2>
-				</a>
-				<p>The key point of the AppKit is an Account object (class).
-					Application uses an Account instance to deal with specific
-					blockchain <a href="docs/glossary.md#account">account</a> using specific
-				owner (signer in term of TonClient library).</p>
-				<p>Each Account instance must use an <a href="docs/glossary.md#abi">ABI</a>
-					compliant contract. So we have to define the <code>Contract</code> object
-					with an ABI and optionally <a href="docs/glossary.md#tvc">tvc</a> fields.
-				This object must be provided to the Account constructor.</p>
-				<p>In the example below we use predefined <a href="docs/glossary.md#giver">giver</a>
-				already included in AppKit and pre deployed in TONOS SE.</p>
-				<pre><code class="language-javascript"><span style="color: #008000">// Define Contract object.</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">AccContract</span><span style="color: #000000"> = {</span>
-<span style="color: #000000">    </span><span style="color: #001080">abi:</span><span style="color: #000000"> { </span><span style="color: #008000">/* ABI declarations */</span><span style="color: #000000"> },</span>
-<span style="color: #000000">    </span><span style="color: #001080">tvc:</span><span style="color: #000000"> </span><span style="color: #A31515">&quot;... base64 encoded string ...&quot;</span><span style="color: #000000">,</span>
-<span style="color: #000000">};</span>
 
-<span style="color: #008000">// Generate new keys pair for new account.</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">keys</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">client</span><span style="color: #000000">.</span><span style="color: #001080">crypto</span><span style="color: #000000">.</span><span style="color: #795E26">generate_random_sign_keys</span><span style="color: #000000">();</span>
-
-<span style="color: #008000">// Create owner (signer) instance for new account.</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">signer</span><span style="color: #000000"> = </span><span style="color: #795E26">signerKeys</span><span style="color: #000000">(</span><span style="color: #001080">keys</span><span style="color: #000000">);</span>
-
-<span style="color: #008000">// Construct Account instance.</span>
-<span style="color: #008000">//</span>
-<span style="color: #008000">// Note that this account is not deployed in the blockchain yet.</span>
-<span style="color: #008000">// We just create an object to deal with this account.</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">acc</span><span style="color: #000000"> = </span><span style="color: #0000FF">new</span><span style="color: #000000"> </span><span style="color: #795E26">Account</span><span style="color: #000000">(</span><span style="color: #001080">AccContract</span><span style="color: #000000">, {</span><span style="color: #001080">signer</span><span style="color: #000000">, </span><span style="color: #001080">client</span><span style="color: #000000">});</span>
-
-<span style="color: #008000">// We can determine the future addres of the account </span>
-<span style="color: #008000">// and print it to the user before deploying.</span>
-<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">`New account future address: </span><span style="color: #0000FF">${</span><span style="color: #AF00DB">await</span><span style="color: #000000FF"> </span><span style="color: #001080">acc</span><span style="color: #000000FF">.</span><span style="color: #795E26">getAddress</span><span style="color: #000000FF">()</span><span style="color: #0000FF">}</span><span style="color: #A31515">`</span><span style="color: #000000">);</span>
-
-<span style="color: #008000">// Deploy account to the blockchain.</span>
-<span style="color: #008000">// Here we use TONOS SE giver to create a positive balance</span>
-<span style="color: #008000">// before deploying.</span>
-<span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">acc</span><span style="color: #000000">.</span><span style="color: #795E26">deploy</span><span style="color: #000000">({</span><span style="color: #001080">useGiver:</span><span style="color: #000000"> </span><span style="color: #0000FF">true</span><span style="color: #000000">});</span>
-
-<span style="color: #008000">// Send external inbound message to our new account</span>
-<span style="color: #008000">// and receives result from external outboud message.</span>
-<span style="color: #0000FF">const</span><span style="color: #000000"> </span><span style="color: #0070C1">response</span><span style="color: #000000"> = </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">acc</span><span style="color: #000000">.</span><span style="color: #795E26">run</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;someFunction&quot;</span><span style="color: #000000">, {</span><span style="color: #001080">someParam:</span><span style="color: #098658">1</span><span style="color: #000000">});</span>
-
-<span style="color: #008000">// Print decoded response message</span>
-<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Account has responded to someFunction with&quot;</span><span style="color: #000000">, </span><span style="color: #001080">response</span><span style="color: #000000">.</span><span style="color: #001080">decoded</span><span style="color: #000000">.</span><span style="color: #001080">output</span><span style="color: #000000">);</span>
-
-<span style="color: #008000">// Print current balance.</span>
-<span style="color: #008000">// Note that balance returned as a string in decimal representation.</span>
-<span style="color: #008000">// This is because of a value measure is a nano.</span>
-<span style="color: #008000">// So its value may not be representable using JS Number.</span>
-<span style="color: #001080">console</span><span style="color: #000000">.</span><span style="color: #795E26">log</span><span style="color: #000000">(</span><span style="color: #A31515">&quot;Account balance now is&quot;</span><span style="color: #000000">, </span><span style="color: #AF00DB">await</span><span style="color: #000000"> </span><span style="color: #001080">acc</span><span style="color: #000000">.</span><span style="color: #795E26">getBalance</span><span style="color: #000000">());</span>
+<a href="#use-account-object" id="use-account-object" style="color: inherit; text-decoration: none;">
+  <h2>Use Account Object</h2>
+</a>
+<p>At the moment the key point of <code>AppKit</code> is an Account object (class). Application uses an Account instance to deal with specific blockchain account using specific owner ( signer in terms of TonClient library).</p>
+<p>Each Account instance must use an ABI compliant contract. So we have to define the <code>Contract</code> object with an ABI and optionally tvc fields. This object must be provided to the Account constructor.</p>
+<p>In the example below we use predefined giver already included in AppKit and predeployed in TONOS SE.</p>
+<pre><code class="language-javascript"><span class="hl-0">// Define Contract object.</span><br/><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">AccContract</span><span class="hl-1"> = {</span><br/><span class="hl-1">    </span><span class="hl-6">abi:</span><span class="hl-1"> { </span><span class="hl-0">/* ABI declarations */</span><span class="hl-1"> },</span><br/><span class="hl-1">    </span><span class="hl-6">tvc:</span><span class="hl-1"> </span><span class="hl-5">&quot;... base64 encoded string ...&quot;</span><span class="hl-1">,</span><br/><span class="hl-1">};</span><br/><br/><span class="hl-0">// Generate new keys pair for new account.</span><br/><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">keys</span><span class="hl-1"> = </span><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-6">crypto</span><span class="hl-1">.</span><span class="hl-4">generate_random_sign_keys</span><span class="hl-1">();</span><br/><br/><span class="hl-0">// Create owner (signer) instance for new account.</span><br/><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">signer</span><span class="hl-1"> = </span><span class="hl-4">signerKeys</span><span class="hl-1">(</span><span class="hl-6">keys</span><span class="hl-1">);</span><br/><br/><span class="hl-0">// Construct Account instance.</span><br/><span class="hl-0">//</span><br/><span class="hl-0">// Note that this account is not deployed in the blockchain yet.</span><br/><span class="hl-0">// We just create an object to deal with this account.</span><br/><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">acc</span><span class="hl-1"> = </span><span class="hl-2">new</span><span class="hl-1"> </span><span class="hl-4">Account</span><span class="hl-1">(</span><span class="hl-6">AccContract</span><span class="hl-1">, { </span><span class="hl-6">signer</span><span class="hl-1">, </span><span class="hl-6">client</span><span class="hl-1"> });</span><br/><br/><span class="hl-0">// We can determine the future addres of the account </span><br/><span class="hl-0">// and print it to the user before deploying.</span><br/><span class="hl-6">console</span><span class="hl-1">.</span><span class="hl-4">log</span><span class="hl-1">(</span><span class="hl-5">`New account future address: </span><span class="hl-2">${</span><span class="hl-7">await</span><span class="hl-8"> </span><span class="hl-6">acc</span><span class="hl-8">.</span><span class="hl-4">getAddress</span><span class="hl-8">()</span><span class="hl-2">}</span><span class="hl-5">`</span><span class="hl-1">);</span><br/><br/><span class="hl-0">// Deploy account to the blockchain.</span><br/><span class="hl-0">// Here we use TONOS SE giver to create a positive balance</span><br/><span class="hl-0">// before deploying.</span><br/><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">acc</span><span class="hl-1">.</span><span class="hl-4">deploy</span><span class="hl-1">({ </span><span class="hl-6">useGiver:</span><span class="hl-1"> </span><span class="hl-2">true</span><span class="hl-1"> });</span><br/><br/><span class="hl-0">// Send external inbound message to our new account</span><br/><span class="hl-0">// and receives result from external outboud message.</span><br/><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">response</span><span class="hl-1"> = </span><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">acc</span><span class="hl-1">.</span><span class="hl-4">run</span><span class="hl-1">(</span><span class="hl-5">&quot;someFunction&quot;</span><span class="hl-1">, { </span><span class="hl-6">someParam:</span><span class="hl-1"> </span><span class="hl-9">1</span><span class="hl-1"> });</span><br/><br/><span class="hl-0">// Print decoded response message</span><br/><span class="hl-6">console</span><span class="hl-1">.</span><span class="hl-4">log</span><span class="hl-1">(</span><span class="hl-5">&quot;Account has responded to someFunction with&quot;</span><span class="hl-1">, </span><span class="hl-6">response</span><span class="hl-1">.</span><span class="hl-6">decoded</span><span class="hl-1">.</span><span class="hl-6">output</span><span class="hl-1">);</span><br/><br/><span class="hl-0">// Print current balance.</span><br/><span class="hl-0">// Note that balance returned as a string in decimal representation.</span><br/><span class="hl-0">// This is because of a value measure is a nano.</span><br/><span class="hl-0">// So its value may not be representable using JS Number.</span><br/><span class="hl-6">console</span><span class="hl-1">.</span><span class="hl-4">log</span><span class="hl-1">(</span><span class="hl-5">&quot;Account balance now is&quot;</span><span class="hl-1">, </span><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">acc</span><span class="hl-1">.</span><span class="hl-4">getBalance</span><span class="hl-1">());</span>
 </code></pre>
-				<p>In the example above we demonstrated typical basic usage of the Account object.</p>
-				<a href="#sample-source-code" id="sample-source-code" style="color: inherit; text-decoration: none;">
-					<h3>Sample source code</h3>
-				</a>
-				<p>Find the sample that demonstrates AppKit usage source code here
-				<a href="https://github.com/tonlabs/sdk-samples/tree/master/demo/hello">https://github.com/tonlabs/sdk-samples/tree/master/demo/hello</a></p>
-				<a href="#executing-contract-on-tvm" id="executing-contract-on-tvm" style="color: inherit; text-decoration: none;">
-					<h2>Executing Contract on TVM</h2>
-				</a>
-				<p><em>Work in progress</em></p>
-				<a href="#subscribe-for-changes" id="subscribe-for-changes" style="color: inherit; text-decoration: none;">
-					<h2>Subscribe for Changes</h2>
-				</a>
-				<p><em>Work in progress</em></p>
-				<hr>
-				<p>Copyright 2018-2021 TON DEV SOLUTIONS LTD.</p>
-			</div>
-		</div>
-		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
-			<nav class="tsd-navigation primary">
-				<ul>
-					<li class=" ">
-						<a href="modules.html">Exports</a>
-					</li>
-				</ul>
-			</nav>
-			<nav class="tsd-navigation secondary menu-sticky">
-				<ul class="before-current">
-					<li class=" tsd-kind-enum">
-						<a href="enums/accounttype.html" class="tsd-kind-icon">Account<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/account.html" class="tsd-kind-icon">Account</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="classes/accounterror.html" class="tsd-kind-icon">Account<wbr>Error</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/accountgiver.html" class="tsd-kind-icon">Account<wbr>Giver</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#accountdeployoptions" class="tsd-kind-icon">Account<wbr>Deploy<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#accountoptions" class="tsd-kind-icon">Account<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#accountrunlocaloptions" class="tsd-kind-icon">Account<wbr>Run<wbr>Local<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#accountrunoptions" class="tsd-kind-icon">Account<wbr>Run<wbr>Options</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="modules.html#contractpackage" class="tsd-kind-icon">Contract<wbr>Package</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="modules.html#defaultgivercontract" class="tsd-kind-icon">Default<wbr>Giver<wbr>Contract</a>
-					</li>
-				</ul>
-			</nav>
-		</div>
-	</div>
-</div>
-<footer class="with-border-bottom">
-	<div class="container">
-		<h2>Legend</h2>
-		<div class="tsd-legend-group">
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
-			</ul>
-		</div>
-	</div>
-</footer>
-<div class="container tsd-generator">
-	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
-</div>
-<div class="overlay"></div>
-<script src="assets/js/main.js"></script>
-</body>
-</html>
+<p>In the example above we demonstrated typical basic usage of the Account object.</p>
+
+<a href="#sample-source-code" id="sample-source-code" style="color: inherit; text-decoration: none;">
+  <h3>Sample source code</h3>
+</a>
+<p>Find the sample that demonstrates AppKit usage source code here <a href="https://github.com/tonlabs/sdk-samples/tree/master/demo/hello-wallet">https://github.com/tonlabs/sdk-samples/tree/master/demo/hello-wallet</a></p>
+
+<a href="#subscribe-for-changes" id="subscribe-for-changes" style="color: inherit; text-decoration: none;">
+  <h2>Subscribe for Changes</h2>
+</a>
+<p>Sometimes it is required to listen for events related to an account in realtime.</p>
+<p>It is easy: just call one of the <code>subscribe</code> methods of an account instance.</p>
+<p>For example, if we need to track all changes in the account state on the blockchain we can use <code>subscribeAccount</code>:</p>
+<pre><code class="language-ts"><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">hello</span><span class="hl-1"> = </span><span class="hl-2">new</span><span class="hl-1"> </span><span class="hl-4">Account</span><span class="hl-1">(</span><span class="hl-6">Hello</span><span class="hl-1">, { </span><span class="hl-6">signer</span><span class="hl-1"> });</span><br/><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">hello</span><span class="hl-1">.</span><span class="hl-4">deploy</span><span class="hl-1">();</span><br/><br/><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">hello</span><span class="hl-1">.</span><span class="hl-4">subscribeAccount</span><span class="hl-1">(</span><span class="hl-5">&quot;balance&quot;</span><span class="hl-1">, (</span><span class="hl-6">acc</span><span class="hl-1">) </span><span class="hl-2">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-0">// This callback triggers every time the account data </span><br/><span class="hl-1">    </span><span class="hl-0">// is changed on the blockchain </span><br/><span class="hl-1">    </span><span class="hl-6">console</span><span class="hl-1">.</span><span class="hl-4">log</span><span class="hl-1">(</span><span class="hl-5">&quot;Account has updated. Current balance is &quot;</span><span class="hl-1">, </span><span class="hl-4">parseInt</span><span class="hl-1">(</span><span class="hl-6">acc</span><span class="hl-1">.</span><span class="hl-6">balance</span><span class="hl-1">));</span><br/><span class="hl-1">});</span><br/><br/><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">hello</span><span class="hl-1">.</span><span class="hl-4">subscribeMessages</span><span class="hl-1">(</span><span class="hl-5">&quot;boc&quot;</span><span class="hl-1">, </span><span class="hl-2">async</span><span class="hl-1"> (</span><span class="hl-6">msg</span><span class="hl-1">) </span><span class="hl-2">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">    </span><span class="hl-0">// This callback triggers every time the message related to this account </span><br/><span class="hl-1">    </span><span class="hl-0">// is appeared on the blockchain.</span><br/><span class="hl-1">    </span><span class="hl-0">// Releated messages include inbound and outbound messages.  </span><br/><span class="hl-1">    </span><span class="hl-6">console</span><span class="hl-1">.</span><span class="hl-4">log</span><span class="hl-1">(</span><span class="hl-5">&quot;Message is appeared &quot;</span><span class="hl-1">, </span><span class="hl-6">msg</span><span class="hl-1">);</span><br/><span class="hl-1">});</span><br/><br/><span class="hl-0">// ...... do something with hello account ...........</span><br/><br/><span class="hl-0">// In addition to other cleanup stuff the `free` method </span><br/><span class="hl-0">// unsubscribes all active subscriptions for this account instance.</span><br/><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">hello</span><span class="hl-1">.</span><span class="hl-4">free</span><span class="hl-1">();</span>
+</code></pre>
+
+<a href="#executing-contract-on-tvm" id="executing-contract-on-tvm" style="color: inherit; text-decoration: none;">
+  <h2>Executing Contract on TVM</h2>
+</a>
+<p>There are some situations where running the contract on the blockchain is not acceptable:</p>
+<ul>
+<li>Writing a tests for developing contract.</li>
+<li>Emulating execution for an existing account to detect failure reason or to calculate estimated fees.</li>
+<li>Getting information from an existing account by running its get methods.</li>
+</ul>
+<p>In these cases we can play with an account on the TVM included in TON SDK client library:</p>
+<pre><code class="language-ts"><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">hello</span><span class="hl-1"> = </span><span class="hl-2">new</span><span class="hl-1"> </span><span class="hl-4">Account</span><span class="hl-1">(</span><span class="hl-6">Hello</span><span class="hl-1">, { </span><span class="hl-6">signer</span><span class="hl-1"> });</span><br/><br/><span class="hl-0">// We don&#39;t deploy contract on real network.</span><br/><span class="hl-0">// We just emulate it. After this call the hello instance</span><br/><span class="hl-0">// will have an account boc that can be used in consequent </span><br/><span class="hl-0">// calls.</span><br/><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">hello</span><span class="hl-1">.</span><span class="hl-4">deployLocal</span><span class="hl-1">();</span><br/><br/><span class="hl-0">// We execute contract locally.</span><br/><span class="hl-0">// But exactly the same way as it executes on the real blockchain.</span><br/><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">result</span><span class="hl-1"> = </span><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">hello</span><span class="hl-1">.</span><span class="hl-4">runLocal</span><span class="hl-1">(</span><span class="hl-5">&quot;touch&quot;</span><span class="hl-1">, {});</span><br/><span class="hl-6">console</span><span class="hl-1">.</span><span class="hl-4">log</span><span class="hl-1">(</span><span class="hl-5">&#39;Touch output&#39;</span><span class="hl-1">, </span><span class="hl-6">result</span><span class="hl-1">);</span>
+</code></pre>
+<p>We can call get method on accounts in the blockchain:</p>
+<pre><code class="language-ts"><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">acc</span><span class="hl-1"> = </span><span class="hl-2">new</span><span class="hl-1"> </span><span class="hl-4">Account</span><span class="hl-1">(</span><span class="hl-6">MyAccount</span><span class="hl-1">, { </span><span class="hl-6">address:</span><span class="hl-1"> </span><span class="hl-6">someAddress</span><span class="hl-1"> });</span><br/><br/><span class="hl-0">// Contracts code and data will be downloaded from the blockchain</span><br/><span class="hl-0">// and used to execute on the local TVM.</span><br/><span class="hl-0">// Without any fees.</span><br/><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">lastBid</span><span class="hl-1"> = (</span><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">acc</span><span class="hl-1">.</span><span class="hl-4">runLocal</span><span class="hl-1">(</span><span class="hl-5">&quot;getLastBid&quot;</span><span class="hl-1">, {})).</span><span class="hl-6">decoded</span><span class="hl-1">.</span><span class="hl-6">output</span><span class="hl-1">.</span><span class="hl-6">lastBid</span><span class="hl-1">;</span><br/><span class="hl-6">console</span><span class="hl-1">.</span><span class="hl-4">log</span><span class="hl-1">(</span><span class="hl-5">&#39;Last bid is&#39;</span><span class="hl-1">, </span><span class="hl-6">lastBid</span><span class="hl-1">);</span><br/><br/><span class="hl-0">// As laways we need to cleanup resources associated with insdtance.</span><br/><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">acc</span><span class="hl-1">.</span><span class="hl-4">free</span><span class="hl-1">();</span>
+</code></pre>
+<p>There are some situations where running the contract on the blockchain is not acceptable:</p>
+<ul>
+<li>Writing a tests for developing contract.</li>
+<li>Emulating execution for an existing account to detect failure reason or to calculate estimated fees.</li>
+<li>Getting information from an existing account by running its get methods.</li>
+</ul>
+<p>In these cases we can play with an account on the TVM included in TON SDK client library:</p>
+<pre><code class="language-ts"><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">hello</span><span class="hl-1"> = </span><span class="hl-2">new</span><span class="hl-1"> </span><span class="hl-4">Account</span><span class="hl-1">(</span><span class="hl-6">Hello</span><span class="hl-1">, { </span><span class="hl-6">signer</span><span class="hl-1"> });</span><br/><br/><span class="hl-0">// We don&#39;t deploy contract on real network.</span><br/><span class="hl-0">// We just emulate it. After this call the hello instance</span><br/><span class="hl-0">// will have an account boc that can be used in consequent </span><br/><span class="hl-0">// calls.</span><br/><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">hello</span><span class="hl-1">.</span><span class="hl-4">deployLocal</span><span class="hl-1">();</span><br/><br/><span class="hl-0">// We execute contract locally.</span><br/><span class="hl-0">// But exactly the same way as it executes on the real blockchain.</span><br/><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">result</span><span class="hl-1"> = </span><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">hello</span><span class="hl-1">.</span><span class="hl-4">runLocal</span><span class="hl-1">(</span><span class="hl-5">&quot;touch&quot;</span><span class="hl-1">, {});</span><br/><span class="hl-6">console</span><span class="hl-1">.</span><span class="hl-4">log</span><span class="hl-1">(</span><span class="hl-5">&#39;Touch output&#39;</span><span class="hl-1">, </span><span class="hl-6">result</span><span class="hl-1">);</span>
+</code></pre>
+<p>We can call get method on accounts in the blockchain:</p>
+<pre><code class="language-ts"><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">acc</span><span class="hl-1"> = </span><span class="hl-2">new</span><span class="hl-1"> </span><span class="hl-4">Account</span><span class="hl-1">(</span><span class="hl-6">MyAccount</span><span class="hl-1">, { </span><span class="hl-6">address:</span><span class="hl-1"> </span><span class="hl-6">someAddress</span><span class="hl-1"> });</span><br/><br/><span class="hl-0">// Contracts code and data will be downloaded from the blockchain</span><br/><span class="hl-0">// and used to execute on the local TVM.</span><br/><span class="hl-0">// Without any fees.</span><br/><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">lastBid</span><span class="hl-1"> = (</span><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">acc</span><span class="hl-1">.</span><span class="hl-4">runLocal</span><span class="hl-1">(</span><span class="hl-5">&quot;getLastBid&quot;</span><span class="hl-1">, {})).</span><span class="hl-6">decoded</span><span class="hl-1">.</span><span class="hl-6">output</span><span class="hl-1">.</span><span class="hl-6">lastBid</span><span class="hl-1">;</span><br/><span class="hl-6">console</span><span class="hl-1">.</span><span class="hl-4">log</span><span class="hl-1">(</span><span class="hl-5">&#39;Last bid is&#39;</span><span class="hl-1">, </span><span class="hl-6">lastBid</span><span class="hl-1">);</span><br/><br/><span class="hl-0">// As laways we need to cleanup resources associated with insdtance.</span><br/><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">acc</span><span class="hl-1">.</span><span class="hl-4">free</span><span class="hl-1">();</span>
+</code></pre>
+
+<a href="#interacting-with-core-sdk" id="interacting-with-core-sdk" style="color: inherit; text-decoration: none;">
+  <h2>Interacting with Core SDK</h2>
+</a>
+<p>AppKit is a convenient library built over the TON-SDK core library. Of course the AppKit doesn&#39;t cover a lot of tasks the core SDK do.</p>
+<p>So you have to easily interact with low level SDK functions. It is really easy.</p>
+<p>Each <code>Account</code> instance has a reference to the TON SDK client instance. So you can use this reference.</p>
+<pre><code class="language-ts"><span class="hl-2">async</span><span class="hl-1"> </span><span class="hl-2">function</span><span class="hl-1"> </span><span class="hl-4">test</span><span class="hl-1">(</span><span class="hl-6">wallet</span><span class="hl-1">: </span><span class="hl-10">Account</span><span class="hl-1">) {</span><br/><span class="hl-1">    </span><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">rnd</span><span class="hl-1"> = (</span><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">wallet</span><span class="hl-1">.</span><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-6">crypto</span><span class="hl-1">.</span><span class="hl-4">generate_random_bytes</span><span class="hl-1">({</span><br/><span class="hl-1">        </span><span class="hl-6">length:</span><span class="hl-1"> </span><span class="hl-9">100</span><br/><span class="hl-1">    })).</span><span class="hl-6">bytes</span><span class="hl-1">;</span><br/><span class="hl-1">}</span>
+</code></pre>
+<p>Each account instance has an <code>abi</code> field with ABI this account belongs to.</p>
+<pre><code class="language-ts"><span class="hl-2">async</span><span class="hl-1"> </span><span class="hl-2">function</span><span class="hl-1"> </span><span class="hl-4">test</span><span class="hl-1">(</span><span class="hl-6">wallet</span><span class="hl-1">: </span><span class="hl-10">Account</span><span class="hl-1">) {</span><br/><span class="hl-1">    </span><span class="hl-2">const</span><span class="hl-1"> </span><span class="hl-3">decoded</span><span class="hl-1"> = (</span><span class="hl-7">await</span><span class="hl-1"> </span><span class="hl-6">wallet</span><span class="hl-1">.</span><span class="hl-6">client</span><span class="hl-1">.</span><span class="hl-6">abi</span><span class="hl-1">.</span><span class="hl-4">decode_message_body</span><span class="hl-1">({</span><br/><span class="hl-1">        </span><span class="hl-6">abi:</span><span class="hl-1"> </span><span class="hl-6">wallet</span><span class="hl-1">.</span><span class="hl-6">abi</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-6">body:</span><span class="hl-1"> </span><span class="hl-6">someMessageBody</span><span class="hl-1">,</span><br/><span class="hl-1">        </span><span class="hl-6">is_internal:</span><span class="hl-1"> </span><span class="hl-2">false</span><span class="hl-1">,</span><br/><span class="hl-1">    })).</span><span class="hl-6">value</span><span class="hl-1">;</span><br/><span class="hl-1">}</span>
+</code></pre>
+</div></div><div class="col-4 col-menu menu-sticky-wrap menu-highlight"><nav class="tsd-navigation primary"><ul><li class="current"><a href="modules.html">Exports</a></li></ul></nav><nav class="tsd-navigation secondary menu-sticky"><ul><li class="tsd-kind-enum"><a href="enums/AccountType.html" class="tsd-kind-icon">Account<wbr/>Type</a></li><li class="tsd-kind-class"><a href="classes/Account.html" class="tsd-kind-icon">Account</a></li><li class="tsd-kind-class"><a href="classes/AccountError.html" class="tsd-kind-icon">Account<wbr/>Error</a></li><li class="tsd-kind-interface"><a href="interfaces/AccountGiver.html" class="tsd-kind-icon">Account<wbr/>Giver</a></li><li class="tsd-kind-type-alias"><a href="modules.html#AccountDeployOptions" class="tsd-kind-icon">Account<wbr/>Deploy<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#AccountOptions" class="tsd-kind-icon">Account<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#AccountRunLocalOptions" class="tsd-kind-icon">Account<wbr/>Run<wbr/>Local<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#AccountRunOptions" class="tsd-kind-icon">Account<wbr/>Run<wbr/>Options</a></li><li class="tsd-kind-type-alias"><a href="modules.html#ContractPackage" class="tsd-kind-icon">Contract<wbr/>Package</a></li><li class="tsd-kind-variable"><a href="modules.html#DefaultGiverContract" class="tsd-kind-icon">Default<wbr/>Giver<wbr/>Contract</a></li></ul></nav></div></div></div><footer class="with-border-bottom"><div class="container"><h2>Legend</h2><div class="tsd-legend-group"><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li><li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li><li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li><li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li></ul><ul class="tsd-legend"><li class="tsd-kind-method tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li></ul></div><h2>Settings</h2><p>Theme <select id="theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></p></div></footer><div class="container tsd-generator"><p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p></div><div class="overlay"></div><script src="assets/main.js"></script></body></html>
