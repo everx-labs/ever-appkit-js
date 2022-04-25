@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Free TON JS Application Kit](../README.md)
+* [Everscale JS Application Kit](../README.md)
 
 ## reference
 
@@ -22,5 +22,5 @@
 
 ## Links
 
-* [AppKit JS repository](https://github.com/tonlabs/appkit-js)
-* [TON SDK documentation](https://tonlabs.gitbook.io/ton-sdk/)
+* [AppKit JS repository](https://github.com/tonlabs/ever-appkit-js)
+* [EVER SDK documentation](https://docs.everos.dev/ever-sdk/)

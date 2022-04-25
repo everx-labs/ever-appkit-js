@@ -1,8 +1,8 @@
-# Free TON JS Application Kit
+# Everscale JS Application Kit
 
-This library is a part of Free TON SDK for JavaScript.
+This library is a part of Everscale SDK for JavaScript.
 
-AppKit is built over the [@eversdk/core](https://github.com/tonlabs/ton-client-js) package and purposed to simplify writing applications on Free TON.
+AppKit is built over the [@eversdk/core](https://github.com/tonlabs/ton-client-js) package and purposed to simplify writing applications on Everscale.
 
 Full API reference: [https://tonlabs.github.io/appkit-js/](https://tonlabs.github.io/appkit-js/)
 
@@ -14,20 +14,20 @@ If this package helped you, please give it a star:)
 
 ## Table of Contents
 
-  - [Useful links](#useful-links)
-  - [Before You Start](#before-you-start)
-  - [Installation](#installation)
-  - [Setup Client Library](#setup-client-library)
-    - [NodeJs:](#nodejs)
-    - [Web:](#web)
-    - [React Native:](#react-native)
-  - [Create Client Instance](#create-client-instance)
-  - [A Few Words about the Code](#a-few-words-about-the-code)
-  - [Use Account Object](#use-account-object)
-    - [Sample source code](#sample-source-code)
-  - [Subscribe for Changes](#subscribe-for-changes)
-  - [Executing Contract on TVM](#executing-contract-on-tvm)
-  - [Interacting with Core SDK](#interacting-with-core-sdk)
+* [Useful links](./#useful-links)
+* [Before You Start](./#before-you-start)
+* [Installation](./#installation)
+* [Setup Client Library](./#setup-client-library)
+  * [NodeJs:](./#nodejs)
+  * [Web:](./#web)
+  * [React Native:](./#react-native)
+* [Create Client Instance](./#create-client-instance)
+* [A Few Words about the Code](./#a-few-words-about-the-code)
+* [Use Account Object](./#use-account-object)
+  * [Sample source code](./#sample-source-code)
+* [Subscribe for Changes](./#subscribe-for-changes)
+* [Executing Contract on TVM](./#executing-contract-on-tvm)
+* [Interacting with Core SDK](./#interacting-with-core-sdk)
 
 ## Useful links
 
