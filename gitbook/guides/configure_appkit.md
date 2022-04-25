@@ -13,8 +13,8 @@ network: {
 };
 ```
 
-If you are working with [local blockchain TON OS SE](https://github.com/tonlabs/tonos-se), specify [http://localhost](http://localhost) in the `endpoints`.
+If you are working with local blockchain [Evernode SE](https://github.com/tonlabs/evernode-se), specify [http://localhost](http://localhost) in the `endpoints`.
 
-Check the full list of [supported network endpoints](https://tonlabs.gitbook.io/ton-sdk/reference/ton-os-api/networks).
+Check the full list of [supported network endpoints](https://docs.everos.dev/ever-sdk/reference/ever-os-api/networks).
 
-You can find reference guide to `TonClient` here: [TON-SDK API Documentation](https://tonlabs.gitbook.io/ton-sdk/reference/types-and-methods/mod_client).
+You can find reference guide to `TonClient` here: [SDK API Documentation](https://docs.everos.dev/ever-sdk/reference/types-and-methods/mod\_client).

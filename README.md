@@ -2,9 +2,9 @@
 
 This library is a part of Everscale SDK for JavaScript.
 
-AppKit is built over the [@eversdk/core](https://github.com/tonlabs/ton-client-js) package and purposed to simplify writing applications on Everscale.
+AppKit is built over the [@eversdk/core](https://github.com/tonlabs/ever-sdk-js) package and purposed to simplify writing applications on Everscale.
 
-Full API reference: [https://tonlabs.github.io/appkit-js/](https://tonlabs.github.io/appkit-js/)
+Full API reference: [https://tonlabs.github.io/ever-appkit-js/](https://tonlabs.github.io/ever-appkit-js/)
 
 If this package helped you, please give it a star:)
 
@@ -31,13 +31,13 @@ If this package helped you, please give it a star:)
 
 ## Useful links
 
-* [Full API reference](https://tonlabs.github.io/appkit-js/)
+* [Full API reference](https://tonlabs.github.io/ever-appkit-js/)
 * [Appkit samples](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples)
-* [SDK guides](https://tonlabs.gitbook.io/ton-sdk/guides/quick\_start) - to get a deeper understanding dive into our sdk guides where you can find extensive explanations and descriptions of each step of DApp development on Free TON.
+* [SDK guides](https://docs.everos.dev/ever-sdk/quick\_start) - to get a deeper understanding dive into our sdk guides where you can find extensive explanations and descriptions of each step of DApp development on Everscale.
 
 ## Before You Start
 
-We strongly recommend installing [TONDEV](https://github.com/tonlabs/tondev) utility before you start playing with TON AppKit. This utility will help you manage your tools for Free TON development.
+We strongly recommend installing [EverDev](https://docs.everos.dev/everdev/) utility before you start playing with AppKit. This utility will help you manage your tools for Everscale development.
 
 ## Installation
 
@@ -117,7 +117,7 @@ TonClient.useBinaryLibrary(libReactNative);
 
 ## Create Client Instance
 
-TON AppKit is built over [core JS library](https://github.com/tonlabs/ton-client-js/tree/master/packages/core). So you have to create an instance of `TonClient` to use it later with TON AppKit objects.
+AppKit is built over [core JS library](https://github.com/tonlabs/ever-sdk-js/tree/master/packages/core). So you have to create an instance of `TonClient` to use it later with AppKit objects.
 
 ```javascript
 const client = new TonClient({
@@ -125,15 +125,15 @@ const client = new TonClient({
 });
 ```
 
-In this sample we create a client instance configured to use local blockchain [TON OS SE](https://github.com/tonlabs/tonos-se) instance.
+In this sample we create a client instance configured to use local blockchain [Evernode SE](https://github.com/tonlabs/evernode-se) instance.
 
-If you want to work with Developer Network or Free TON network, please use the [list of endpoints, listed here](https://tonlabs.gitbook.io/ton-sdk/reference/ton-os-api/networks). **Attention** You must specify all the endpoints as an array in `endpoints` parameter, because each endpoint does not guarantee its availability, but we guarantee that at least one endpoint is operational at the moment.
+If you want to work with Developer Network or Everscale main network, please use the [list of endpoints, listed here](https://docs.everos.dev/ever-sdk/reference/ever-os-api/networks). **Attention** You must specify all the endpoints as an array in `endpoints` parameter, because each endpoint does not guarantee its availability, but we guarantee that at least one endpoint is operational at the moment.
 
 ## A Few Words about the Code
 
 Below we use a code snippets to illustrate `AppKit` usage.\
 In this code we omit an initialization part because it is the same.\
-We suppose that we are using lib-node bridge (NodeJs) to write examples. Also, we use the library to deal with local [TON OS SE](https://github.com/tonlabs/tonos-se) instance.
+We suppose that we are using lib-node bridge (NodeJs) to write examples. Also, we use the library to deal with local [Evernode SE](https://github.com/tonlabs/evernode-se) instance.
 
 So the full code of each example can look like this:
 
@@ -167,7 +167,7 @@ At the moment the key point of `AppKit` is an Account object (class). Applicatio
 
 Each Account instance must use an ABI compliant contract. So we have to define the `Contract` object with an ABI and optionally tvc fields. This object must be provided to the Account constructor.
 
-In the example below we use predefined giver already included in AppKit and predeployed in TONOS SE.
+In the example below we use predefined giver already included in AppKit and predeployed in Evernode SE.
 
 ```javascript
 // Define Contract object.
@@ -215,7 +215,7 @@ In the example above we demonstrated typical basic usage of the Account object.
 
 ### Sample source code
 
-Find the sample that demonstrates AppKit usage source code here https://github.com/tonlabs/sdk-samples/tree/master/demo/hello-wallet
+Find the sample that demonstrates AppKit usage source code here: [https://github.com/tonlabs/sdk-samples/tree/master/demo/hello-wallet](https://github.com/tonlabs/sdk-samples/tree/master/demo/hello-wallet)&#x20;
 
 ## Subscribe for Changes
 
@@ -257,7 +257,7 @@ There are some situations where running the contract on the blockchain is not ac
 * Emulating execution for an existing account to detect failure reason or to calculate estimated fees.
 * Getting information from an existing account by running its get methods.
 
-In these cases we can play with an account on the TVM included in TON SDK client library:
+In these cases we can play with an account on the TVM included in EVER SDK client library:
 
 ```ts
 const hello = new Account(Hello, { signer });
@@ -295,7 +295,7 @@ There are some situations where running the contract on the blockchain is not ac
 * Emulating execution for an existing account to detect failure reason or to calculate estimated fees.
 * Getting information from an existing account by running its get methods.
 
-In these cases we can play with an account on the TVM included in TON SDK client library:
+In these cases we can play with an account on the TVM included in EVER SDK client library:
 
 ```ts
 const hello = new Account(Hello, { signer });
@@ -329,11 +329,11 @@ await acc.free();
 
 ## Interacting with Core SDK
 
-AppKit is a convenient library built over the TON-SDK core library. Of course the AppKit doesn't cover a lot of tasks the core SDK do.
+AppKit is a convenient library built over the EVER SDK core library. Of course the AppKit doesn't cover a lot of tasks the core SDK do.
 
 So you have to easily interact with low level SDK functions. It is really easy.
 
-Each `Account` instance has a reference to the TON SDK client instance. So you can use this reference.
+Each `Account` instance has a reference to the EVER SDK client instance. So you can use this reference.
 
 ```ts
 async function test(wallet: Account) {

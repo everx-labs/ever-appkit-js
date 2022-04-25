@@ -1,6 +1,6 @@
 # Deploy
 
-Find out how to deploy a contract to Free TON Blockchain with SDK
+Find out how to deploy a contract to Everscale Blockchain with SDK
 
 * [About Deploy](deploy.md#about-deploy)
 * [Deploy steps](deploy.md#deploy-steps)
@@ -33,7 +33,7 @@ Let's take a look at every step.
 
 To initialize an account, we need:
 
-* Contract object, that we import from `HelloContract.js`. We prepared this file when [adding contract to our app](https://tonlabs.gitbook.io/ton-sdk/guides/installation/add\_contract\_to\_your\_app).
+* Contract object, that we import from `HelloContract.js`. We prepared this file when [adding contract to our app](https://docs.everos.dev/ever-sdk/guides/work\_with\_contracts/add\_contract\_to\_your\_app).
 * Account options, that are passed as the following structure:
 
 ```
@@ -81,7 +81,7 @@ const keys  = {
 
 ## Calculate the future address of the contract
 
-TON blockchain requires every contract to have a positive token balance before deployment. The contract pays for the initial deployment message reducing account balance. To sponsor account before deploy we need to calculate its address.
+Everscale blockchain requires every contract to have a positive token balance before deployment. The contract pays for the initial deployment message reducing account balance. To sponsor account before deploy we need to calculate its address.
 
 Under the hood this calculation is performed on tvc, `initData` and `pubkey`.
 
@@ -121,7 +121,7 @@ useGiver?: true | AccountGiver,
 
 ## Specify Giver
 
-By default `Account.getDefaultGiver()` is [TON OS SE giver](https://github.com/tonlabs/tonos-se/tree/master/contracts). It is integrated into Account module. We will use it. But you can always re-define it with method `Account.giver(newGiver: AccountGiver)` with the following signature:
+By default `Account.getDefaultGiver()` is Evernode[ SE giver](https://github.com/tonlabs/tonos-se/tree/master/contracts). It is integrated into Account module. We will use it. But you can always re-define it with method `Account.giver(newGiver: AccountGiver)` with the following signature:
 
 ```
 /**
@@ -130,7 +130,7 @@ By default `Account.getDefaultGiver()` is [TON OS SE giver](https://github.com/t
 export type AccountGiver = (address: string, value: number) => Promise<void>;
 ```
 
-More details about implementing your custom giver with sample code [here](./custom_giver.md).
+More details about implementing your custom giver with sample code [here](custom\_giver.md).
 
 ## Deploy
 
@@ -148,4 +148,4 @@ Because our contract has a constructor function as init function without paramet
 
 [https://github.com/tonlabs/sdk-samples/blob/master/demo/hello-wallet/index.js](https://github.com/tonlabs/sdk-samples/blob/master/demo/hello-wallet/index.js)
 
-Check out [core api documentation](https://tonlabs.gitbook.io/ton-sdk/guides/work\_with\_contracts/deploy) for more information.
+Check out [core api documentation](https://docs.everos.dev/ever-sdk/guides/work\_with\_contracts/deploy) for more information.

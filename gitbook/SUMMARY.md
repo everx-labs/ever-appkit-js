@@ -4,13 +4,13 @@
 
 ## reference
 
-* [AppKit Reference](https://tonlabs.github.io/appkit-js/)
+* [AppKit Reference](https://tonlabs.github.io/ever-appkit-js/)
 
 ## Samples
 
 * [AppKit Samples](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples)
 
-## guides
+## Guides
 
 * [AppKit Guides](guides/appkit\_guides.md)
 * [Configure AppKit](guides/configure\_appkit.md)

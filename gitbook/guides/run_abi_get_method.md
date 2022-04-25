@@ -38,4 +38,4 @@ console.log(`\nDePool Balance Nano Crystal:`, response.decoded.output.value0);
 
 Observe the full sample: [https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples/depool-statistics](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples/depool-statistics)
 
-Check out [core api documentation](https://tonlabs.gitbook.io/ton-sdk/guides/work\_with\_contracts/run\_abi\_get\_method) for more information about running get methods.
+Check out [core api documentation](https://docs.everos.dev/ever-sdk/guides/work\_with\_contracts/run\_abi\_get\_method) for more information about running get methods.

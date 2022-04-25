@@ -31,4 +31,4 @@ let response = await helloAcc.run("touch", {});
 
 Observe the full sample: [https://github.com/tonlabs/sdk-samples/tree/master/demo/hello-wallet](https://github.com/tonlabs/sdk-samples/tree/master/demo/hello-wallet)
 
-Check out [core api documentation](https://tonlabs.gitbook.io/ton-sdk/guides/work\_with\_contracts/run\_onchain) for more information about running a contract.
+Check out [core api documentation](https://docs.everos.dev/ever-sdk/guides/work\_with\_contracts/run\_onchain) for more information about running a contract.

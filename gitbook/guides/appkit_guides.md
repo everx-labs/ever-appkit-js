@@ -11,10 +11,10 @@ This section contains guides for working with AppKit:
 
 AppKit samples are also available for the following cases, reviewed in more detail in core SDK guides:
 
-* External signing: [Core guide](https://tonlabs.gitbook.io/ton-sdk/guides/work\_with\_contracts/external\_signing) | [Sample](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples/signing-box)
-* Emulate transaction: [Core guide](https://tonlabs.gitbook.io/ton-sdk/guides/work\_with\_contracts/emulate\_transaction) | [Sample](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples/run\_executor)
-* Decode message: [Core guide](https://tonlabs.gitbook.io/ton-sdk/guides/work\_with\_contracts/decode\_message) | [Sample](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples/listen-and-decode)
-* Estimate fees: [Core guide](https://tonlabs.gitbook.io/ton-sdk/guides/work\_with\_contracts/estimate\_fees) | [Sample](https://github.com/tonlabs/sdk-samples/blob/master/appkit-examples/fee-calculation/index.js)
-* Validate address, convert address: [Core guide](https://tonlabs.gitbook.io/ton-sdk/guides/work\_with\_contracts/validate\_address\_convert\_address) | [Sample](https://github.com/tonlabs/sdk-samples/blob/master/core-examples/node-js/multisig/work-with-multisig.js)
-* Query collection: [Core guide](https://tonlabs.gitbook.io/ton-sdk/guides/queries\_and\_subscriptions/query\_collection) | [Sample](https://github.com/tonlabs/sdk-samples/tree/master/core-examples/node-js/query)
-* 
+* External signing: [Core guide](https://docs.everos.dev/ever-sdk/guides/work\_with\_contracts/external\_signing) | [Sample](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples/signing-box)
+* Emulate transaction: [Core guide](https://docs.everos.dev/ever-sdk/guides/work\_with\_contracts/emulate\_transaction) | [Sample](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples/run\_executor)
+* Decode message: [Core guide](https://docs.everos.dev/ever-sdk/guides/work\_with\_contracts/decode\_message) | [Sample](https://github.com/tonlabs/sdk-samples/tree/master/appkit-examples/listen-and-decode)
+* Estimate fees: [Core guide](https://docs.everos.dev/ever-sdk/guides/work\_with\_contracts/estimate\_fees) | [Sample](https://github.com/tonlabs/sdk-samples/blob/master/appkit-examples/fee-calculation/index.js)
+* Validate address, convert address: [Core guide](https://docs.everos.dev/ever-sdk/guides/work\_with\_contracts/validate\_address\_convert\_address) | [Sample](https://github.com/tonlabs/sdk-samples/blob/master/core-examples/node-js/multisig/work-with-multisig.js)
+* Query collection: [Core guide](https://docs.everos.dev/ever-sdk/guides/queries\_and\_subscriptions/query\_collection) | [Sample](https://github.com/tonlabs/sdk-samples/tree/master/core-examples/node-js/query)
+
