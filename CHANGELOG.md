@@ -2,6 +2,10 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.2] – 2022-10-18
+### Fix
+- Minor fix, considering accounts with type "NonExist", which BOC is empty. 
+
 ## [0.3.1] – 2022-03-22
 
 ### New
