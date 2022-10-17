@@ -122,6 +122,9 @@ export class AccountError extends Error {
     static missingTVC(): AccountError {
         return new AccountError("Can't calculate deploy params: missing required TVC.");
     }
+    static missingBOC(): AccountError {
+        return new AccountError("Account has an empty BOC.");
+    }
 }
 
 /**
@@ -404,12 +407,17 @@ export class Account {
             },
         });
         let result;
-        result = await this.client.tvm.run_executor({
-            account: accountForExecutorAccount(await this.boc()),
-            abi: this.abi,
-            message: message.message,
-        });
-        return result.fees;
+        const boc = await this.boc();
+        if (typeof boc === "string" && boc !=="") {
+            result = await this.client.tvm.run_executor({
+                account: accountForExecutorAccount(boc),
+                abi: this.abi,
+                message: message.message,
+            });
+            return result.fees;
+        } else {
+            throw AccountError.missingBOC();
+        }
     }
 
     /**
@@ -463,25 +471,30 @@ export class Account {
             },
         });
         let result;
-        if (options?.performAllChecks) {
-            result = await this.client.tvm.run_executor({
-                account: accountForExecutorAccount(await this.boc()),
-                abi: this.abi,
-                message: message.message,
-                return_updated_account: true,
-            });
+        const boc = await this.boc();
+        if (typeof boc === "string" && boc !=="") {
+            if (options?.performAllChecks) {
+                result = await this.client.tvm.run_executor({
+                    account: accountForExecutorAccount(boc),
+                    abi: this.abi,
+                    message: message.message,
+                    return_updated_account: true,
+                });
+            } else {
+                result = (await this.client.tvm.run_tvm({
+                    account: boc,
+                    abi: this.abi,
+                    message: message.message,
+                    return_updated_account: true,
+                }) as ResultOfRunExecutor);
+            }
+            if (result.account) {
+                this.cachedBoc = result.account;
+            }
+            return result;
         } else {
-            result = (await this.client.tvm.run_tvm({
-                account: await this.boc(),
-                abi: this.abi,
-                message: message.message,
-                return_updated_account: true,
-            }) as ResultOfRunExecutor);
+            throw AccountError.missingBOC();
         }
-        if (result.account) {
-            this.cachedBoc = result.account;
-        }
-        return result;
     }
 
     private needSyncWithTransaction(transaction: any) {
@@ -499,7 +512,7 @@ export class Account {
      * This function syncs fetching boc with last `run` or `deploy`
      * so fetched boc
      */
-    async boc(): Promise<string> {
+    async boc(): Promise<string | null> {
         if (this.cachedBoc && this.useCachedState) {
             return this.cachedBoc;
         }
@@ -544,15 +557,18 @@ export class Account {
      * Returns parsed data of the account.
      */
     async getAccount(): Promise<any> {
-        try {
-            return (
-                await this.client.boc.parse_account({
-                    boc: await this.boc(),
-                })
-            ).parsed;
-        } catch (error: any) {
-            if (error.code !== 603) {
-                throw error;
+        const boc = await this.boc();
+        if (typeof boc === "string" && boc !== "") {
+            try {
+                return (
+                    await this.client.boc.parse_account({
+                        boc
+                    })
+                ).parsed;
+            } catch (error: any) {
+                if (error.code !== 603) {
+                    throw error;
+                }
             }
         }
         return {
