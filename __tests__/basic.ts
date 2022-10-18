@@ -14,7 +14,6 @@ import {
 
 beforeAll(init);
 afterAll(done);
-
 const helloContract = () => loadContract("Hello");
 
 test("Account Basic Usage", async () => {
@@ -80,7 +79,7 @@ test("Local run without `useCachedState`", async () => {
     await account.deployLocal();
     await expect(account.calcRunFees("touch", {})).rejects.toHaveProperty(
       'message',
-      expect.stringMatching(/Account has an empty BOC, this usually means it doesn't exist/)
+      expect.stringMatching(/account was deleted/)
     )
 });
 
