@@ -123,7 +123,7 @@ export class AccountError extends Error {
         return new AccountError("Can't calculate deploy params: missing required TVC.");
     }
     static missingBOC(): AccountError {
-        return new AccountError("Account has an empty BOC.");
+        return new AccountError("Account has an empty BOC, this usually means it doesn't exist");
     }
 }
 
@@ -534,16 +534,26 @@ export class Account {
                 return boc;
             }
         }
-        const boc = (
-            await net.wait_for_collection({
-                collection: "accounts",
-                filter: {id: {eq: this.address}},
-                result: "boc",
-                timeout: 1000,
-            })
-        ).result.boc;
-        this.cachedBoc = boc;
-        return boc;
+        try {
+            const boc = (
+                // Returns BOC or null if account was found in DB, but has "NotExists" status
+                // Throws if:
+                //  - account NOT found in DB (err.code 603) 
+                //  - some network error occured
+                await net.wait_for_collection({
+                    collection: "accounts",
+                    filter: {id: {eq: this.address}},
+                    result: "boc",
+                    timeout: 1000,
+                })
+            ).result.boc;
+            this.cachedBoc = boc;
+            return boc;
+         } catch (error: any) {
+            if (error.code === 603) {
+                return null
+            }
+        }
     }
 
     /**
@@ -558,22 +568,14 @@ export class Account {
      */
     async getAccount(): Promise<any> {
         const boc = await this.boc();
-        if (typeof boc === "string" && boc !== "") {
-            try {
-                return (
-                    await this.client.boc.parse_account({
-                        boc
-                    })
-                ).parsed;
-            } catch (error: any) {
-                if (error.code !== 603) {
-                    throw error;
-                }
-            }
-        }
-        return {
-            acc_type: AccountType.nonExist,
-        };
+        if (typeof boc === "string" &&  boc !== "") {
+            // No need to try-catch
+            return (await this.client.boc.parse_account({ boc })).parsed;
+        } else {
+            return {
+                acc_type: AccountType.nonExist,
+            };
+       }
     }
 
     async subscribeAccount(fields: string, listener: (account: any) => void | Promise<void>) {

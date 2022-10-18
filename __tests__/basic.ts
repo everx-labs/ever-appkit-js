@@ -80,7 +80,7 @@ test("Local run without `useCachedState`", async () => {
     await account.deployLocal();
     await expect(account.calcRunFees("touch", {})).rejects.toHaveProperty(
       'message',
-      expect.stringMatching(/WaitFor failed/)
+      expect.stringMatching(/Account has an empty BOC, this usually means it doesn't exist/)
     )
 });
 
