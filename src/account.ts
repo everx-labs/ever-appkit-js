@@ -118,9 +118,28 @@ export type ContractPackage = {
     tvc?: string,
 }
 
+enum ERR_CODES {
+    MISSING_TVC,
+    ACC_NOT_EXISTS,
+}
+
 export class AccountError extends Error {
+    code: ERR_CODES
+    constructor (opt: {code: ERR_CODES, message: string}) {
+        super(opt.message)
+        this.code = opt.code
+    }
     static missingTVC(): AccountError {
-        return new AccountError("Can't calculate deploy params: missing required TVC.");
+        return new AccountError({
+            code: ERR_CODES.MISSING_TVC,
+            message: "Can't calculate deploy params: missing required TVC.",
+        });
+    }
+    static missingBOC(): AccountError {
+        return new AccountError({
+            code: ERR_CODES.ACC_NOT_EXISTS,
+            message: 'Account has an empty BOC. Possible reason is: account was deleted (has account type "NonExist")',
+        });
     }
 }
 
@@ -517,20 +536,37 @@ export class Account {
             if (accounts.result.length > 0) {
                 const boc = accounts.result[0].boc;
                 this.syncLastTransLt = null;
-                this.cachedBoc = boc;
-                return boc;
+                if (boc) {
+                    this.cachedBoc = boc;
+                    return boc;
+                } 
+                throw AccountError.missingBOC();
             }
         }
-        const boc = (
-            await net.wait_for_collection({
-                collection: "accounts",
-                filter: {id: {eq: this.address}},
-                result: "boc",
-                timeout: 1000,
-            })
-        ).result.boc;
-        this.cachedBoc = boc;
-        return boc;
+        try {
+            const boc = (
+                // Returns BOC or null if account was found in DB, but has "NotExists" status
+                // Throws if:
+                //  - account NOT found in DB (err.code 603) 
+                //  - some network error occured
+                await net.wait_for_collection({
+                    collection: "accounts",
+                    filter: {id: {eq: this.address}},
+                    result: "boc",
+                    timeout: 1000,
+                })
+            ).result.boc;
+            if (boc) {
+                this.cachedBoc = boc;
+                return boc;
+            } 
+            throw AccountError.missingBOC();
+        } catch (error: any) {
+            if (error.code === 603) {
+                throw AccountError.missingBOC();
+            }
+            throw error
+        }
     }
 
     /**
@@ -545,19 +581,15 @@ export class Account {
      */
     async getAccount(): Promise<any> {
         try {
-            return (
-                await this.client.boc.parse_account({
-                    boc: await this.boc(),
-                })
-            ).parsed;
-        } catch (error: any) {
-            if (error.code !== 603) {
-                throw error;
+            const boc = await this.boc();
+            return (await this.client.boc.parse_account({ boc })).parsed;
+        } catch (err: any) {
+            if (err.code === ERR_CODES.ACC_NOT_EXISTS) {
+                return {
+                    acc_type: AccountType.nonExist,
+                };
             }
         }
-        return {
-            acc_type: AccountType.nonExist,
-        };
     }
 
     async subscribeAccount(fields: string, listener: (account: any) => void | Promise<void>) {
