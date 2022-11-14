@@ -18,7 +18,7 @@ const helloContract = () => loadContract("Hello");
 
 test("Account Basic Usage", async () => {
     const client = TonClient.default;
-    const startTime = Date.now();
+    const startTimeInSeconds = Math.floor(Date.now() / 1000);
 
     const acc = new Account(helloContract(), {
         signer: signerKeys(await client.crypto.generate_random_sign_keys()),
@@ -35,8 +35,8 @@ test("Account Basic Usage", async () => {
     expect(response.transaction.id).toHaveLength(64);
 
     response = await acc.runLocal("sayHello", {});
-    const timestamp = Number(response.decoded?.output.value0) * 1000;
-    expect(timestamp).toBeGreaterThan(startTime);
+    const timestampInSeconds = Number(response.decoded?.output.value0);
+    expect(timestampInSeconds).toBeGreaterThanOrEqual(startTimeInSeconds);
 });
 
 test("Calc Fees", async () => {

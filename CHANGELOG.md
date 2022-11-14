@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.3.3] – 2022-11-14
+
+### Fix
+
+-   Fixed a bug that caused the error to disappear instead of being thrown.
+
+-   Fixed a test that started to fail after improving message processing speed in EverOS SE.
+
+
 ## [0.3.2] – 2022-10-18
 ### Fix
 - Minor fix, considering accounts with type "NonExist", which BOC is empty. 
