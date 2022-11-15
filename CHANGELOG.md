@@ -8,7 +8,7 @@ All notable changes to this project will be documented in this file.
 
 -   Fixed a bug that caused the error to disappear instead of being thrown.
 
--   Fixed a test that started to fail after improving message processing speed in EverOS SE.
+-   Fixed a test that started to fail after improving message processing speed in Evernode-SE.
 
 
 ## [0.3.2] – 2022-10-18
