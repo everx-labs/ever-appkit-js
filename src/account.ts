@@ -48,7 +48,7 @@ export type AccountOptions = {
  */
 export type AccountRunOptions = {
     /**
-     * Is not specified then this.signer
+     * If not specified then this.signer
      */
     signer?: Signer,
 }
@@ -589,6 +589,7 @@ export class Account {
                     acc_type: AccountType.nonExist,
                 };
             }
+            throw err;
         }
     }
 

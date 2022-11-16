@@ -1,6 +1,6 @@
 {
 	"name": "@eversdk/appkit",
-	"version": "0.3.2",
+	"version": "0.3.3",
 	"description": "FreeTON SDK: Application Kit",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -33,12 +33,12 @@
 		"node": ">=6"
 	},
 	"dependencies": {
-		"@eversdk/core": "^1"
+		"@eversdk/core": "^1.38.1"
 	},
 	"devDependencies": {
 		"@babel/preset-env": "^7.13.10",
 		"@babel/preset-typescript": "^7.13.0",
-		"@eversdk/lib-node": "^1",
+		"@eversdk/lib-node": "^1.38.1",
 		"@types/jest": "^26.0.21",
 		"@types/node": "^14.14.35",
 		"jest": "^26.6.3",
