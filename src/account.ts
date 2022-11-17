@@ -561,11 +561,27 @@ export class Account {
                 return boc;
             } 
             throw AccountError.missingBOC();
-        } catch (error: any) {
-            if (error.code === 603) {
-                throw AccountError.missingBOC();
+        } catch (waitForError: any) {
+            if (waitForError.code === 603) {
+                try {
+                    // Checking query
+                    const { result } = await net.query_collection({
+                        collection: "accounts",
+                        filter: {
+                            id: { eq: this.address },
+                        },
+                        result: "id",
+                    });
+                    if (result.length === 0) {
+                        throw AccountError.missingBOC();
+                    } else {
+                        throw waitForError;
+                    }
+                } catch (checkQueryError: any) {
+                    throw checkQueryError;
+                }
             }
-            throw error
+            throw waitForError;
         }
     }
 
