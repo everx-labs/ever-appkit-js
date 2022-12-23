@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
 
+
+## [0.3.5] – 2022-12-23
+
+- Improved error handling in case of network errors
+
 ## [0.3.4] – 2022-11-17
 
 - Improved error handling in case of network errors
