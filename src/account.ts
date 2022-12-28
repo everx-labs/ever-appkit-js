@@ -143,6 +143,13 @@ export class AccountError extends Error {
                 'Account has an empty BOC. Possible reason is: account was deleted (has account type "NonExist")',
         })
     }
+
+    static missingAccount(): AccountError {
+        return new AccountError({
+            code: ERR_CODES.ACC_NOT_EXISTS,
+            message: "Account does not exists on the blockchain.",
+        })
+    }
 }
 
 /**
@@ -587,17 +594,17 @@ export class Account {
                         filter: {
                             id: { eq: this.address },
                         },
-                        result: "id",
+                        result: "boc",
                     })
                     if (result.length === 0) {
-                        throw AccountError.missingBOC()
+                        throw AccountError.missingAccount()
                     } else {
                         const boc = result[0].boc
                         if (boc) {
                             this.cachedBoc = boc
                             return boc
                         }
-                        throw waitForError
+                        throw AccountError.missingBOC()
                     }
                 } catch (checkQueryError: any) {
                     throw checkQueryError
