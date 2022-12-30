@@ -14,7 +14,8 @@ import {
     ResultOfSubscribeCollection,
     TransactionFees,
     accountForExecutorUninit,
-} from "@eversdk/core";
+    NetErrorCode,
+} from "@eversdk/core"
 
 /**
  * Options for an account instance
@@ -23,24 +24,24 @@ export type AccountOptions = {
     /**
      * Initial data
      */
-    initData?: object,
+    initData?: object
     /**
      * Default is `signerNone`
      */
-    signer?: Signer,
+    signer?: Signer
     /**
      * If not specified will be calculated on contracts init state.
      */
-    address?: string,
+    address?: string
     /**
      * If not specified the Account.getDefaultClient() will be used.
      */
-    client?: TonClient,
+    client?: TonClient
     /**
      * If true, appkit aggressively caches account state.
      * Useful for running `runLocal` and `runLocal` functions in tests.
      */
-    useCachedState?: boolean;
+    useCachedState?: boolean
 }
 
 /**
@@ -50,7 +51,7 @@ export type AccountRunOptions = {
     /**
      * If not specified then this.signer
      */
-    signer?: Signer,
+    signer?: Signer
 }
 
 /**
@@ -61,7 +62,7 @@ export type AccountRunLocalOptions = {
      * If `true` then performs all checks and calculations as node do.
      * If `false` then simplified execution is used.
      */
-    performAllChecks?: boolean,
+    performAllChecks?: boolean
 }
 
 /**
@@ -69,9 +70,9 @@ export type AccountRunLocalOptions = {
  * deploying account.
  */
 export interface AccountGiver {
-    address: string,
+    address: string
 
-    sendTo(address: string, value: number): Promise<void>,
+    sendTo(address: string, value: number): Promise<void>
 }
 
 /**
@@ -83,12 +84,12 @@ export type AccountDeployOptions = {
      * - `undefined` (omitted): library will use `constructor` as a function name.
      * - `null`: library will not produce message body (no init function invocation).
      */
-    initFunctionName?: string | null,
+    initFunctionName?: string | null
     /**
      * Parameters of init function.
      * Note: library ignores this parameter if `initFunctionName` is `null`.
      */
-    initInput?: object,
+    initInput?: object
     /**
      * Giver to be used to send amount of value to deploying address
      * before deploying.
@@ -97,7 +98,7 @@ export type AccountDeployOptions = {
      * If omitted then application must prepay address
      * using own logic.
      */
-    useGiver?: true | AccountGiver,
+    useGiver?: true | AccountGiver
 }
 
 /**
@@ -109,13 +110,13 @@ export type ContractPackage = {
     /**
      * ABI of smart contract
      */
-    abi: AbiContract,
+    abi: AbiContract
     /**
      * Compiled artifact of the smart contract.
      * This field contains BOC with code and initial data (init state).
      * If it is missing, then application can't deploy account of this contracts.
      */
-    tvc?: string,
+    tvc?: string
 }
 
 enum ERR_CODES {
@@ -125,7 +126,7 @@ enum ERR_CODES {
 
 export class AccountError extends Error {
     code: ERR_CODES
-    constructor (opt: {code: ERR_CODES, message: string}) {
+    constructor(opt: { code: ERR_CODES; message: string }) {
         super(opt.message)
         this.code = opt.code
     }
@@ -133,13 +134,21 @@ export class AccountError extends Error {
         return new AccountError({
             code: ERR_CODES.MISSING_TVC,
             message: "Can't calculate deploy params: missing required TVC.",
-        });
+        })
     }
     static missingBOC(): AccountError {
         return new AccountError({
             code: ERR_CODES.ACC_NOT_EXISTS,
-            message: 'Account has an empty BOC. Possible reason is: account was deleted (has account type "NonExist")',
-        });
+            message:
+                'Account has an empty BOC. Possible reason is: account was deleted (has account type "NonExist")',
+        })
+    }
+
+    static missingAccount(): AccountError {
+        return new AccountError({
+            code: ERR_CODES.ACC_NOT_EXISTS,
+            message: "Account does not exists on the blockchain.",
+        })
     }
 }
 
@@ -173,7 +182,10 @@ export enum AccountType {
  * account address.
  */
 export class Account {
-    private static giversByClient: { client: TonClient, giver: AccountGiver }[] = [];
+    private static giversByClient: {
+        client: TonClient
+        giver: AccountGiver
+    }[] = []
 
     /**
      * Returns the giver instance assigned for specified client instance.
@@ -182,7 +194,7 @@ export class Account {
      * @param client Client instance looking for.
      */
     static findGiverForClient(client: TonClient): AccountGiver | undefined {
-        return this.giversByClient.find(x => x.client === client)?.giver;
+        return this.giversByClient.find(x => x.client === client)?.giver
     }
 
     /**
@@ -194,29 +206,29 @@ export class Account {
      * this client must be removed.
      */
     static setGiverForClient(client: TonClient, giver: AccountGiver | null) {
-        const i = this.giversByClient.findIndex(x => x.client === client);
+        const i = this.giversByClient.findIndex(x => x.client === client)
         if (i >= 0) {
             if (giver) {
-                this.giversByClient[i].giver = giver;
+                this.giversByClient[i].giver = giver
             } else {
-                this.giversByClient.splice(i, 1);
+                this.giversByClient.splice(i, 1)
             }
         } else if (giver) {
             this.giversByClient.push({
                 client,
                 giver,
-            });
+            })
         }
     }
 
     private static async createGiver(client: TonClient): Promise<AccountGiver> {
-        const giverKeys = await getDefaultGiverKeys(client);
-        const giverAddress = await getDefaultGiverAddress(client, giverKeys);
+        const giverKeys = await getDefaultGiverKeys(client)
+        const giverAddress = await getDefaultGiverAddress(client, giverKeys)
         const giver = new Account(DefaultGiverContract, {
             client,
             address: giverAddress,
             signer: signerKeys(giverKeys),
-        });
+        })
         return {
             address: giverAddress,
             sendTo: async (address, value) => {
@@ -224,9 +236,9 @@ export class Account {
                     dest: address,
                     value,
                     bounce: false,
-                });
+                })
             },
-        };
+        }
     }
 
     /**
@@ -237,47 +249,48 @@ export class Account {
      * @param client Client instance.
      */
     static async getGiverForClient(client: TonClient): Promise<AccountGiver> {
-        const existing = this.findGiverForClient(client);
+        const existing = this.findGiverForClient(client)
         if (existing) {
-            return existing;
+            return existing
         }
-        const giver = await this.createGiver(client);
+        const giver = await this.createGiver(client)
         this.giversByClient.push({
             client,
             giver,
-        });
-        return giver;
+        })
+        return giver
     }
 
     /**
      * Contract package used for this account.
      */
-    readonly contract: ContractPackage;
+    readonly contract: ContractPackage
     /**
      * Client instance used to perform all account related tasks.
      */
-    readonly client: TonClient;
+    readonly client: TonClient
     /**
      * Abi of this account.
      */
-    readonly abi: Abi;
+    readonly abi: Abi
     /**
      * Signer used to sign messages addressed to this account.
      */
-    readonly signer: Signer;
+    readonly signer: Signer
     /**
      * Initial data used to form the deploy parameter.
      */
-    readonly initData: object | null;
+    readonly initData: object | null
     /**
      * Allow Appkit to use the cached account state, safe for local tests only.
      */
-    readonly useCachedState: boolean;
+    readonly useCachedState: boolean
 
-    private address: string | null;
-    private syncLastTransLt: string | null = null;
-    private cachedBoc: string | null = null;
-    private subscriptions: Map<string, ResultOfSubscribeCollection> | null = null;
+    private address: string | null
+    private syncLastTransLt: string | null = null
+    private cachedBoc: string | null = null
+    private subscriptions: Map<string, ResultOfSubscribeCollection> | null =
+        null
 
     /**
      * Constructs account instance.
@@ -285,17 +298,14 @@ export class Account {
      * @param contract Contract package containing abi and optional tvc data.
      * @param options Account instance options.
      */
-    constructor(
-        contract: ContractPackage,
-        options?: AccountOptions,
-    ) {
-        this.contract = contract;
-        this.client = options?.client ?? TonClient.default;
-        this.abi = abiContract(contract.abi);
-        this.signer = options?.signer ?? signerNone();
-        this.address = options?.address ?? null;
-        this.initData = options?.initData ?? null;
-        this.useCachedState = options?.useCachedState ?? false;
+    constructor(contract: ContractPackage, options?: AccountOptions) {
+        this.contract = contract
+        this.client = options?.client ?? TonClient.default
+        this.abi = abiContract(contract.abi)
+        this.signer = options?.signer ?? signerNone()
+        this.address = options?.address ?? null
+        this.initData = options?.initData ?? null
+        this.useCachedState = options?.useCachedState ?? false
     }
 
     /**
@@ -305,15 +315,16 @@ export class Account {
      * or calculates it from deploy data provided in constructor.
      */
     async getAddress(): Promise<string> {
-        let address = this.address;
+        let address = this.address
         if (address === null) {
             const deployParams = this.getParamsOfDeployMessage({
                 initFunctionName: null,
-            });
-            address = (await this.client.abi.encode_message(deployParams)).address;
-            this.address = address;
+            })
+            address = (await this.client.abi.encode_message(deployParams))
+                .address
+            this.address = address
         }
-        return address;
+        return address
     }
 
     /**
@@ -324,7 +335,7 @@ export class Account {
         options?: AccountDeployOptions,
     ): ParamsOfEncodeMessage {
         if (!this.contract.tvc) {
-            throw AccountError.missingTVC();
+            throw AccountError.missingTVC()
         }
         const params: ParamsOfEncodeMessage = {
             abi: this.abi,
@@ -332,75 +343,84 @@ export class Account {
             deploy_set: {
                 tvc: this.contract.tvc,
             },
-        };
+        }
         if (this.initData) {
-            (params.deploy_set as any).initial_data = this.initData;
+            ;(params.deploy_set as any).initial_data = this.initData
         }
         if (options?.initFunctionName !== null) {
             params.call_set = {
                 function_name: options?.initFunctionName ?? "constructor",
-            };
+            }
             if (options?.initInput !== undefined) {
-                params.call_set.input = options.initInput;
-
+                params.call_set.input = options.initInput
             }
         }
-        return params;
+        return params
     }
 
     /**
      * Calculates detailed deploy fees.
      */
-    async calcDeployFees(options?: AccountDeployOptions): Promise<TransactionFees> {
-        const deployParams = await this.getParamsOfDeployMessage(options);
-        const message = await this.client.abi.encode_message(deployParams);
+    async calcDeployFees(
+        options?: AccountDeployOptions,
+    ): Promise<TransactionFees> {
+        const deployParams = await this.getParamsOfDeployMessage(options)
+        const message = await this.client.abi.encode_message(deployParams)
         const result = await this.client.tvm.run_executor({
             account: accountForExecutorUninit(),
             abi: this.abi,
             message: message.message,
-        });
-        return result.fees;
+        })
+        return result.fees
     }
 
     /**
      * Deploys account into network
      * @param options
      */
-    async deploy(options?: AccountDeployOptions): Promise<ResultOfProcessMessage> {
-        const deployParams = this.getParamsOfDeployMessage(options);
-        const useGiver = options?.useGiver;
-        const giver = useGiver === true ? (await Account.getGiverForClient(this.client)) : useGiver;
-        this.address = (await this.client.abi.encode_message(deployParams)).address;
+    async deploy(
+        options?: AccountDeployOptions,
+    ): Promise<ResultOfProcessMessage> {
+        const deployParams = this.getParamsOfDeployMessage(options)
+        const useGiver = options?.useGiver
+        const giver =
+            useGiver === true
+                ? await Account.getGiverForClient(this.client)
+                : useGiver
+        this.address = (
+            await this.client.abi.encode_message(deployParams)
+        ).address
         if (giver) {
-            await giver.sendTo(this.address, 10_000_000_000);
+            await giver.sendTo(this.address, 10_000_000_000)
         }
         const result = await this.client.processing.process_message({
             message_encode_params: deployParams,
             send_events: false,
-        });
-        this.needSyncWithTransaction(result.transaction);
-        return result;
+        })
+        this.needSyncWithTransaction(result.transaction)
+        return result
     }
 
     /**
      * Emulate deploy
      * @param options
      */
-    async deployLocal(options?: AccountDeployOptions): Promise<ResultOfProcessMessage> {
-        const deployParams = this.getParamsOfDeployMessage(options);
-        const {
-            address,
-            message,
-        } = await this.client.abi.encode_message(deployParams);
+    async deployLocal(
+        options?: AccountDeployOptions,
+    ): Promise<ResultOfProcessMessage> {
+        const deployParams = this.getParamsOfDeployMessage(options)
+        const { address, message } = await this.client.abi.encode_message(
+            deployParams,
+        )
         const result = await this.client.tvm.run_executor({
             account: accountForExecutorUninit(),
             abi: this.abi,
             message,
             return_updated_account: true,
-        });
-        this.address = address;
-        this.cachedBoc = result.account;
-        return result;
+        })
+        this.address = address
+        this.cachedBoc = result.account
+        return result
     }
 
     /**
@@ -421,14 +441,14 @@ export class Account {
                 function_name: functionName,
                 input,
             },
-        });
-        let result;
+        })
+        let result
         result = await this.client.tvm.run_executor({
             account: accountForExecutorAccount(await this.boc()),
             abi: this.abi,
             message: message.message,
-        });
-        return result.fees;
+        })
+        return result.fees
     }
 
     /**
@@ -444,7 +464,7 @@ export class Account {
         input: object,
         options?: AccountRunOptions,
     ): Promise<ResultOfProcessMessage> {
-        const result = (await this.client.processing.process_message({
+        const result = await this.client.processing.process_message({
             message_encode_params: {
                 address: await this.getAddress(),
                 abi: this.abi,
@@ -455,9 +475,9 @@ export class Account {
                 },
             },
             send_events: false,
-        }));
-        this.needSyncWithTransaction(result.transaction);
-        return result;
+        })
+        this.needSyncWithTransaction(result.transaction)
+        return result
     }
 
     /**
@@ -480,33 +500,33 @@ export class Account {
                 function_name: functionName,
                 input,
             },
-        });
-        let result;
+        })
+        let result
         if (options?.performAllChecks) {
             result = await this.client.tvm.run_executor({
                 account: accountForExecutorAccount(await this.boc()),
                 abi: this.abi,
                 message: message.message,
                 return_updated_account: true,
-            });
+            })
         } else {
             result = (await this.client.tvm.run_tvm({
                 account: await this.boc(),
                 abi: this.abi,
                 message: message.message,
                 return_updated_account: true,
-            }) as ResultOfRunExecutor);
+            })) as ResultOfRunExecutor
         }
         if (result.account) {
-            this.cachedBoc = result.account;
+            this.cachedBoc = result.account
         }
-        return result;
+        return result
     }
 
     private needSyncWithTransaction(transaction: any) {
         if (!transaction.aborted && transaction.lt) {
-            this.syncLastTransLt = transaction.lt;
-            this.cachedBoc = null;
+            this.syncLastTransLt = transaction.lt
+            this.cachedBoc = null
         }
     }
 
@@ -520,49 +540,53 @@ export class Account {
      */
     async boc(): Promise<string> {
         if (this.cachedBoc && this.useCachedState) {
-            return this.cachedBoc;
+            return this.cachedBoc
         }
-        const address = await this.getAddress();
-        const net = this.client.net;
+        const address = await this.getAddress()
+        const net = this.client.net
         if (this.syncLastTransLt) {
             const accounts = await net.query_collection({
                 collection: "accounts",
                 filter: {
-                    id: {eq: address},
-                    last_trans_lt: {ge: this.syncLastTransLt},
+                    id: { eq: address },
+                    last_trans_lt: { ge: this.syncLastTransLt },
                 },
                 result: "boc",
-            });
+            })
             if (accounts.result.length > 0) {
-                const boc = accounts.result[0].boc;
-                this.syncLastTransLt = null;
+                const boc = accounts.result[0].boc
+                this.syncLastTransLt = null
                 if (boc) {
-                    this.cachedBoc = boc;
-                    return boc;
-                } 
-                throw AccountError.missingBOC();
+                    this.cachedBoc = boc
+                    return boc
+                }
+                throw AccountError.missingBOC()
             }
         }
         try {
-            const boc = (
+            const boc =
                 // Returns BOC or null if account was found in DB, but has "NotExists" status
                 // Throws if:
-                //  - account NOT found in DB (err.code 603) 
+                //  - account NOT found in DB (err.code 603)
                 //  - some network error occured
-                await net.wait_for_collection({
-                    collection: "accounts",
-                    filter: {id: {eq: this.address}},
-                    result: "boc",
-                    timeout: 1000,
-                })
-            ).result.boc;
+                (
+                    await net.wait_for_collection({
+                        collection: "accounts",
+                        filter: { id: { eq: this.address } },
+                        result: "boc",
+                        timeout: 1000,
+                    })
+                ).result.boc
             if (boc) {
-                this.cachedBoc = boc;
-                return boc;
-            } 
-            throw AccountError.missingBOC();
+                this.cachedBoc = boc
+                return boc
+            }
+            throw AccountError.missingBOC()
         } catch (waitForError: any) {
-            if (waitForError.code === 603) {
+            const isWaitForError =
+                waitForError.code === NetErrorCode.WaitForFailed ||
+                waitForError.code === NetErrorCode.WaitForTimeout
+            if (isWaitForError) {
                 try {
                     // Checking query
                     const { result } = await net.query_collection({
@@ -570,18 +594,23 @@ export class Account {
                         filter: {
                             id: { eq: this.address },
                         },
-                        result: "id",
-                    });
+                        result: "boc",
+                    })
                     if (result.length === 0) {
-                        throw AccountError.missingBOC();
+                        throw AccountError.missingAccount()
                     } else {
-                        throw waitForError;
+                        const boc = result[0].boc
+                        if (boc) {
+                            this.cachedBoc = boc
+                            return boc
+                        }
+                        throw AccountError.missingBOC()
                     }
                 } catch (checkQueryError: any) {
-                    throw checkQueryError;
+                    throw checkQueryError
                 }
             }
-            throw waitForError;
+            throw waitForError
         }
     }
 
@@ -589,7 +618,7 @@ export class Account {
      * Drops all cached and local data.
      */
     refresh() {
-        this.cachedBoc = null;
+        this.cachedBoc = null
     }
 
     /**
@@ -597,62 +626,71 @@ export class Account {
      */
     async getAccount(): Promise<any> {
         try {
-            const boc = await this.boc();
-            return (await this.client.boc.parse_account({ boc })).parsed;
+            const boc = await this.boc()
+            return (await this.client.boc.parse_account({ boc })).parsed
         } catch (err: any) {
             if (err.code === ERR_CODES.ACC_NOT_EXISTS) {
                 return {
                     acc_type: AccountType.nonExist,
-                };
+                }
             }
-            throw err;
+            throw err
         }
     }
 
-    async subscribeAccount(fields: string, listener: (account: any) => void | Promise<void>) {
+    async subscribeAccount(
+        fields: string,
+        listener: (account: any) => void | Promise<void>,
+    ) {
         await this.subscribe(
             "accounts",
-            {id: {eq: await this.getAddress()}},
+            { id: { eq: await this.getAddress() } },
             fields,
             listener,
-        );
+        )
     }
 
-    async subscribeTransactions(fields: string, listener: (transaction: any) => void | Promise<void>) {
-        const address = await this.getAddress();
+    async subscribeTransactions(
+        fields: string,
+        listener: (transaction: any) => void | Promise<void>,
+    ) {
+        const address = await this.getAddress()
         await this.subscribe(
             "transactions",
             {
-                account_addr: {eq: address},
-                status: {eq: 5},
+                account_addr: { eq: address },
+                status: { eq: 5 },
             },
             fields,
             listener,
-        );
+        )
     }
 
-    async subscribeMessages(fields: string, listener: (message: any) => void | Promise<void>) {
-        const address = await this.getAddress();
+    async subscribeMessages(
+        fields: string,
+        listener: (message: any) => void | Promise<void>,
+    ) {
+        const address = await this.getAddress()
         await this.subscribe(
             "messages",
             {
-                status: {eq: 5},
-                src: {eq: address},
+                status: { eq: 5 },
+                src: { eq: address },
                 OR: {
-                    status: {eq: 5},
-                    dst: {eq: address},
+                    status: { eq: 5 },
+                    dst: { eq: address },
                 },
             },
             fields,
             listener,
-        );
+        )
     }
 
     async decodeMessage(message: string): Promise<any> {
         return await TonClient.default.abi.decode_message({
             abi: this.abi,
             message,
-        });
+        })
     }
 
     async decodeMessageBody(body: string, isInternal: boolean) {
@@ -660,31 +698,40 @@ export class Account {
             abi: this.abi,
             body,
             is_internal: isInternal,
-        });
+        })
     }
 
     async getBalance(): Promise<string> {
-        return (await this.getAccount()).balance;
+        return (await this.getAccount()).balance
     }
 
-    async subscribe(collection: string, filter: any, fields: string, listener: (data: any) => void | Promise<void>) {
-        const prevSubscription = this.subscriptions && this.subscriptions.get(collection);
+    async subscribe(
+        collection: string,
+        filter: any,
+        fields: string,
+        listener: (data: any) => void | Promise<void>,
+    ) {
+        const prevSubscription =
+            this.subscriptions && this.subscriptions.get(collection)
         if (prevSubscription) {
-            this.subscriptions?.delete(collection);
-            await this.client.net.unsubscribe(prevSubscription);
+            this.subscriptions?.delete(collection)
+            await this.client.net.unsubscribe(prevSubscription)
         } else if (!this.subscriptions) {
-            this.subscriptions = new Map();
+            this.subscriptions = new Map()
         }
-        const subscription = await this.client.net.subscribe_collection({
-            collection,
-            filter,
-            result: fields,
-        }, ((params, responseType) => {
-            if (responseType === 100) {
-                listener(params.result);
-            }
-        }));
-        this.subscriptions?.set(collection, subscription);
+        const subscription = await this.client.net.subscribe_collection(
+            {
+                collection,
+                filter,
+                result: fields,
+            },
+            (params, responseType) => {
+                if (responseType === 100) {
+                    listener(params.result)
+                }
+            },
+        )
+        this.subscriptions?.set(collection, subscription)
     }
 
     /**
@@ -699,52 +746,58 @@ export class Account {
      */
     async free(): Promise<void> {
         if (this.subscriptions) {
-            const subscriptions = this.subscriptions.values();
-            this.subscriptions = null;
+            const subscriptions = this.subscriptions.values()
+            this.subscriptions = null
             for (const subscription of subscriptions) {
-                await this.client.net.unsubscribe(subscription);
+                await this.client.net.unsubscribe(subscription)
             }
         }
     }
 }
 
 function getEnv(name: string): any {
-    const globalEval = eval;
+    const globalEval = eval
     try {
-        return globalEval(`process.env.${name}`);
+        return globalEval(`process.env.${name}`)
     } catch {
-        return undefined;
+        return undefined
     }
 }
 
 async function getDefaultGiverKeys(client: TonClient): Promise<KeyPair> {
-    const definedSecret = getEnv("TON_GIVER_SECRET");
+    const definedSecret = getEnv("TON_GIVER_SECRET")
     if (definedSecret) {
-        const definedKeys = await client.crypto.nacl_sign_keypair_from_secret_key({
-            secret: definedSecret,
-        });
-        definedKeys.secret = definedKeys.secret.substr(0, 64);
-        return definedKeys;
+        const definedKeys =
+            await client.crypto.nacl_sign_keypair_from_secret_key({
+                secret: definedSecret,
+            })
+        definedKeys.secret = definedKeys.secret.substr(0, 64)
+        return definedKeys
     }
     // noinspection SpellCheckingInspection
     return {
-        "public": "2ada2e65ab8eeab09490e3521415f45b6e42df9c760a639bcf53957550b25a16",
-        "secret": "172af540e43a524763dd53b26a066d472a97c4de37d5498170564510608250c3",
-    };
+        public: "2ada2e65ab8eeab09490e3521415f45b6e42df9c760a639bcf53957550b25a16",
+        secret: "172af540e43a524763dd53b26a066d472a97c4de37d5498170564510608250c3",
+    }
 }
 
-async function getDefaultGiverAddress(client: TonClient, keys: KeyPair): Promise<string> {
-    const definedAddress = getEnv("TON_GIVER_ADDRESS");
+async function getDefaultGiverAddress(
+    client: TonClient,
+    keys: KeyPair,
+): Promise<string> {
+    const definedAddress = getEnv("TON_GIVER_ADDRESS")
     if (definedAddress) {
-        return definedAddress;
+        return definedAddress
     }
-    return (await client.abi.encode_message({
-        abi: abiContract(DefaultGiverContract.abi),
-        deploy_set: {
-            tvc: DefaultGiverContract.tvc ?? "",
-        },
-        signer: signerKeys(keys),
-    })).address;
+    return (
+        await client.abi.encode_message({
+            abi: abiContract(DefaultGiverContract.abi),
+            deploy_set: {
+                tvc: DefaultGiverContract.tvc ?? "",
+            },
+            signer: signerKeys(keys),
+        })
+    ).address
 }
 
 // noinspection SpellCheckingInspection
@@ -757,16 +810,16 @@ export const DefaultGiverContract: ContractPackage = {
                 name: "sendTransaction",
                 inputs: [
                     {
-                        "name": "dest",
-                        "type": "address",
+                        name: "dest",
+                        type: "address",
                     },
                     {
-                        "name": "value",
-                        "type": "uint128",
+                        name: "value",
+                        type: "uint128",
                     },
                     {
-                        "name": "bounce",
-                        "type": "bool",
+                        name: "bounce",
+                        type: "bool",
                     },
                 ],
                 outputs: [],
@@ -811,4 +864,4 @@ export const DefaultGiverContract: ContractPackage = {
         events: [],
     },
     tvc: "te6ccgECGgEAA9sAAgE0BgEBAcACAgPPIAUDAQHeBAAD0CAAQdgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIm/wD0pCAiwAGS9KDhiu1TWDD0oQkHAQr0pCD0oQgAAAIBIAwKAfz/fyHtRNAg10nCAZ/T/9MA9AX4an/4Yfhm+GKOG/QFbfhqcAGAQPQO8r3XC//4YnD4Y3D4Zn/4YeLTAAGOEoECANcYIPkBWPhCIPhl+RDyqN4j+EL4RSBukjBw3rry4GUh0z/THzQx+CMhAb7yuSH5ACD4SoEBAPQOIJEx3rMLAE7y4Gb4ACH4SiIBVQHIyz9ZgQEA9EP4aiMEXwTTHwHwAfhHbpLyPN4CASASDQIBWBEOAQm46Jj8UA8B/vhBbo4S7UTQ0//TAPQF+Gp/+GH4Zvhi3tFwbW8C+EqBAQD0hpUB1ws/f5NwcHDikSCONyMjI28CbyLIIs8L/yHPCz8xMQFvIiGkA1mAIPRDbwI0IvhKgQEA9HyVAdcLP3+TcHBw4gI1MzHoXwPIghB3RMfighCAAAAAsc8LHyEQAKJvIgLLH/QAyIJYYAAAAAAAAAAAAAAAAM8LZoEDmCLPMQG5lnHPQCHPF5Vxz0EhzeIgyXH7AFswwP+OEvhCyMv/+EbPCwD4SgH0AMntVN5/+GcAxbkWq+f/CC3Rxt2omgQa6ThAM/p/+mAegL8NT/8MPwzfDFHDfoCtvw1OADAIHoHeV7rhf/8MTh8Mbh8Mz/8MPFvfCNJeRnJuPwzcXwAaPwhZGX//CNnhYB8JQD6AGT2qj/8M8AIBIBUTAde7Fe+TX4QW6OEu1E0NP/0wD0Bfhqf/hh+Gb4Yt76QNcNf5XU0dDTf9/XDACV1NHQ0gDf0SIiInPIcc8LASLPCgBzz0AkzxYj+gKAac9Acs9AIMki+wBfBfhKgQEA9IaVAdcLP3+TcHBw4pEggUAJKOLfgjIgG7n/hKIwEhAYEBAPRbMDH4at4i+EqBAQD0fJUB1ws/f5NwcHDiAjUzMehfA18D+ELIy//4Rs8LAPhKAfQAye1Uf/hnAgEgFxYAx7jkYYdfCC3Rwl2omhp/+mAegL8NT/8MPwzfDFvamj8IXwikDdJGDhvXXlwMvwAfCFkZf/8I2eFgHwlAPoAZPaqfAeQfYIQaHaPdqn4ARh8IWRl//wjZ4WAfCUA+gBk9qo//DPACAtoZGAAtr4QsjL//hGzwsA+EoB9ADJ7VT4D/IAgAdacCHHAJ0i0HPXIdcLAMABkJDi4CHXDR+S8jzhUxHAAJDgwQMighD////9vLGS8jzgAfAB+EdukvI83o",
-};
+}
