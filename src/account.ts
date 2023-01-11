@@ -568,7 +568,7 @@ export class Account {
                 // Returns BOC or null if account was found in DB, but has "NotExists" status
                 // Throws if:
                 //  - account NOT found in DB (err.code 603)
-                //  - some network error occured
+                //  - some network error occurred
                 (
                     await net.wait_for_collection({
                         collection: "accounts",
