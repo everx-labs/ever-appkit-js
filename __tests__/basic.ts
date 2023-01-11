@@ -79,7 +79,7 @@ test("Local run without `useCachedState`", async () => {
     await account.deployLocal();
     await expect(account.calcRunFees("touch", {})).rejects.toHaveProperty(
       'message',
-      expect.stringMatching(/account was deleted/)
+      expect.stringMatching(/Account does not exists on the blockchain/)
     )
 });
 
