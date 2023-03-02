@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 
 
+## [0.3.6] – 2023-03-02
+
+- Fixed giver
+
 ## [0.3.5] – 2022-12-23
 
 - Improved error handling in case of network errors
