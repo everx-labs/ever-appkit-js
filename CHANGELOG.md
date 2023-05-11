@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file.
 
 
+## [0.3.7] – 2023-05-11
+
+- Support giver v3
+
 ## [0.3.6] – 2023-03-02
 
 - Fixed giver
