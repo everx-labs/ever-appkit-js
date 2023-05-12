@@ -72,7 +72,7 @@ export type AccountRunLocalOptions = {
 export interface AccountGiver {
     address: string
     account: Account
-    sendTo(address: string, value: number): Promise<void>
+    sendTo(address: string, value: number): Promise<ResultOfProcessMessage>
 }
 
 /**
@@ -244,6 +244,7 @@ export class Account {
                         `The giver's sendTo call should result in at least 1 internal outbound message, transaction.id: ${topup.transaction.id}`,
                     )
                 }
+                return topup
             },
         }
     }
